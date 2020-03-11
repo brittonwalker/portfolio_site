@@ -13,6 +13,7 @@ body{
   background-color: black;
   color: white;
   font-family: 'Space Mono', monospace;
+
 }
 @-webkit-keyframes spin {
 20%{
@@ -37,15 +38,18 @@ nav{
   z-index: 999;
   ul{
     display: flex;
-    font-size: 1.5em;
-    width: 90%;
-    margin: 0 auto;
-    padding: 0;
+    font-size: 1.2em;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
     justify-content: space-between;
     li{
       display: inline-block;
       list-style-type: none;
-      padding: 10px;
+      padding: 0 0 10px;
+      letter-spacing: 5px;
     }
   }
 }
@@ -53,7 +57,8 @@ nav{
 // main ///////////////////////////////////////////////////////////////
 .name{
   padding: 10px;
-  font-size: 1.5em;
+  font-size: 1.4em;
+  letter-spacing: 3px;
 }
 .main{
   position: relative;
@@ -119,6 +124,7 @@ nav{
       margin: 0 auto;
       line-height: 1.4em;
       margin-bottom: 25px;
+      letter-spacing: 2px;
     }
     .tech{
       margin-bottom: 25px;
@@ -203,11 +209,11 @@ nav{
   }
 }
 
-.smile{
-  -webkit-animation: spin 2s 1s alternate infinite;
-  animation: spin 2s 1s infinite;
-  width: 100%;
-}
+// .smile{
+//   -webkit-animation: spin 2s 1s alternate infinite;
+//   animation: spin 2s 1s infinite;
+//   width: 100%;
+// }
 
 a:link, a:visited, a:active{
   color:white;
@@ -231,3 +237,6 @@ iframe{
 .project, a:hover{
   cursor: pointer;
 }
+
+// .image-container { transition: all .2s ease-in-out; }
+// .image-container:hover { transform: scale(1.1); }
