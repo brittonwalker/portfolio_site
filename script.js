@@ -2,7 +2,7 @@ $(document).ready(function() {
   var BW = {
     init: function(){
       this.smoothScroll(this.els.link);
-      console.log('welcome');
+      console.log('welcome dude');
     },
     els: {
       link: $('a[href^="#"]')
