@@ -1,0 +1,8 @@
+body {
+	@apply bg-background text-primary;
+	font-family: 'Neue Montreal', sans-serif;
+	font-size: clamp(18px, calc(.5vw + .5vh + 1.5vmin - .2vmax), 32px);
+	::selection {
+		@apply bg-hightlight;
+	}
+}
