@@ -11,7 +11,7 @@ export default class SkewScroll {
   update = () => {
     const newPos = window.pageYOffset;
     const diff = newPos - this.currentPos;
-    const speed = diff * 0.15;
+    const speed = diff * 0.25;
 
     this.DOM.els.forEach((el) => {
       el.style.transition = `transform .3s`;
