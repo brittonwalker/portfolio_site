@@ -24,6 +24,7 @@ export default class Cursor {
     this.innerCursor = document.querySelector('.circle-cursor--inner');
     this.outerCursorBox = this.outerCursor.getBoundingClientRect();
     this.outerCursorSpeed = 0;
+    this.continer = document.getElementById('.container');
     this.easing = {
       _p1: 1.70158,
       _p2: 2.5949095,
@@ -86,8 +87,9 @@ export default class Cursor {
         y: box.top,
         width: box.width,
         height: box.height,
+        borderRadius: 0,
         opacity: 0.4,
-        borderColor: '#ff0000',
+        // borderColor: '#ff0000',
       });
     };
 
@@ -96,8 +98,9 @@ export default class Cursor {
       TweenMax.to(this.outerCursor, 0.2, {
         width: this.outerCursorOriginals.width,
         height: this.outerCursorOriginals.height,
-        opacity: 0.2,
-        borderColor: '#ffffff',
+        opacity: 1,
+        borderRadius: '50%',
+        // borderColor: '#ffffff',
       });
     };
 
