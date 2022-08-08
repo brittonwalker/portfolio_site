@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 @import './app/_fonts.scss';
-@import './app/cursor.scss';
+@import './app/_cursor.scss';
+@import './app/_menu.scss';
 
 body {
 	@apply bg-background text-primary cursor-none;
@@ -40,7 +41,7 @@ h1 {
 }
 
 .menu-trigger {
-	@apply fixed top-8 right-8 z-10;
+	@apply fixed top-8 right-8 z-10 mix-blend-difference;
 }
 
 .menu-indicator {

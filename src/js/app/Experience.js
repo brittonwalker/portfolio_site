@@ -3,6 +3,7 @@ import SkewScroll from './SkewScroll';
 import Cursor from './Cursor';
 import Links from './Links';
 import MomentumScrolling from './MomentumScrolling';
+import Navigation from './Navigation';
 
 let DOM = {
   textRevealElements: document.querySelectorAll('.text-reveal'),
@@ -30,5 +31,6 @@ export default class Experience {
     this.skewScroll = new SkewScroll([...document.querySelectorAll('section')]);
     this.cursor = new Cursor();
     this.pageScroll = new MomentumScrolling(false);
+    this.menu = new Navigation(document.querySelector('.main-nav'));
   }
 }
