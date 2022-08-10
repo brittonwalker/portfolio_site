@@ -5,17 +5,29 @@ export default class SkewScroll {
       els: Array.isArray(els) ? els : [els],
     };
     this.currentPos = window.pageYOffset;
+    this.maxSkew = 1;
+    this.minSkew = 0;
 
     this.update();
   }
   update = () => {
     const newPos = window.pageYOffset;
     const diff = newPos - this.currentPos;
-    const speed = diff * 0.25;
+
+    let skew = diff * 0.25;
+
+    if (skew > this.maxSkew || skew < this.minSkew) {
+      if (skew > this.maxSkew) {
+        skew = this.maxSkew;
+      }
+      if (skew < this.minSkew) {
+        skew = this.minSkew;
+      }
+    }
 
     this.DOM.els.forEach((el) => {
       el.style.transition = `transform .3s`;
-      el.style.transform = speed > 0 ? `skewY(${speed}deg)` : `skewY(0)`;
+      el.style.transform = `skewY(${skew}deg)`;
     });
 
     this.currentPos = newPos;

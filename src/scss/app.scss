@@ -5,6 +5,7 @@
 @import './app/_fonts.scss';
 @import './app/_cursor.scss';
 @import './app/_menu.scss';
+@import './app/_works.scss';
 
 body {
 	@apply bg-background text-primary cursor-none;
@@ -78,4 +79,22 @@ body {
 
 main {
 	@apply w-full h-full;
+}
+
+.footer-text {
+	font-size: 15.6vw;
+	font-size: clamp(18px, 15.6vw, 15.6vw);
+	font-family: 'Right Grotesk', sans-serif;
+	@apply text-center;
+}
+
+.sticky-container {
+	// @apply flex;
+}
+
+.sticky-wrapper	{
+  overflow-x: hidden;
+  display: flex;
+  position: sticky;
+  top:0;
 }

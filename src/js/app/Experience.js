@@ -4,6 +4,8 @@ import Cursor from './Cursor';
 import Links from './Links';
 import MomentumScrolling from './MomentumScrolling';
 import Navigation from './Navigation';
+import SideScrollers from './SideScrollers';
+import StickyScroll from './StickyScroll';
 
 let DOM = {
   textRevealElements: document.querySelectorAll('.text-reveal'),
@@ -28,9 +30,17 @@ export default class Experience {
     this.textLinesReveal = new TextLinesReveal(
       document.querySelectorAll('.text-reveal')
     ).in();
-    this.skewScroll = new SkewScroll([...document.querySelectorAll('section')]);
+    this.skewScroll = new SkewScroll([
+      ...document.querySelectorAll('.skew-item'),
+    ]);
     this.cursor = new Cursor();
     this.pageScroll = new MomentumScrolling(false);
     this.menu = new Navigation(document.querySelector('.main-nav'));
+    this.workItems = new SideScrollers([
+      ...document.querySelectorAll('.work__scroller'),
+    ]);
+    this.stickyScrollers = new StickyScroll([
+      ...document.querySelectorAll('.sticky-container'),
+    ]);
   }
 }
