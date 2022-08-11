@@ -25,8 +25,13 @@ export default class Navigation {
     body.classList.remove('is-active');
   }
   checkClick(e) {
-    const { menu, body } = this.DOM;
-    if (body.classList.contains('is-active') && !menu.contains(e.target)) {
+    const { menu, body, trigger } = this.DOM;
+    // and is not trigger
+    if (
+      body.classList.contains('is-active') &&
+      !menu.contains(e.target) &&
+      !trigger.contains(e.target)
+    ) {
       this.close();
     }
   }
