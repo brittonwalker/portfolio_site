@@ -1,0 +1,12 @@
+.sticky-container {}
+
+.sticky-wrapper	{
+  overflow-x: hidden;
+  display: flex;
+  position: sticky;
+  top:0;
+}
+
+.sticky-item {
+	@apply min-w-[100vw] h-screen p-8;
+}

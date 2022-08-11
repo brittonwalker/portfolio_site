@@ -1,8 +1,21 @@
 body {
-	@apply bg-background text-primary;
+	@apply bg-background text-primary cursor-none;
 	font-family: 'Neue Montreal', sans-serif;
 	font-size: clamp(18px, calc(.5vw + .5vh + 1.5vmin - .2vmax), 32px);
 	::selection {
 		@apply bg-hightlight;
 	}
+}
+
+a {
+	cursor: none;
+}
+
+p {
+	@apply my-[1em];
+}
+
+h1 {
+	@apply text-9xl;
+	font-family: 'Right Grotesk', sans-serif;
 }

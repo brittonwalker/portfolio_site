@@ -3,30 +3,12 @@
 @tailwind utilities;
 
 @import './app/_fonts.scss';
+@import './app/_global.scss';
 @import './app/_cursor.scss';
 @import './app/_menu.scss';
 @import './app/_works.scss';
-
-body {
-	@apply bg-background text-primary cursor-none;
-	font-family: 'Neue Montreal', sans-serif;
-	::selection {
-		@apply bg-hightlight;
-	}
-}
-
-a {
-	cursor: none;
-}
-
-p {
-	@apply my-[1em];
-}
-
-h1 {
-	@apply text-9xl;
-	font-family: 'Right Grotesk', sans-serif;
-}
+@import './app/sticky-scroll.scss';
+@import './app/_footer.scss';
 
 .text-container {
 	margin: 0 auto;
@@ -41,60 +23,6 @@ h1 {
 	}
 }
 
-.menu-trigger {
-	@apply fixed top-8 right-8 z-10 mix-blend-difference;
-}
-
-.menu-indicator {
-	@apply bg-primary;
-	@apply w-8 h-8 rounded-full;
-	@apply transform rotate-45;
-	@apply transition-all duration-200 ease-in-out;
-	@apply cursor-pointer animate-bounce;
-}
-
-.shape-overlays {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0; 
-  left: 0;
-}
-
-.shape-overlays path:nth-of-type(1) { fill: #c4dbea; }
-.shape-overlays path:nth-of-type(2) { fill: #4c688b; }
-.shape-overlays path:nth-of-type(3) { fill: #2e496a; }
-
 .oh {
 	@apply overflow-hidden;
-}
-
-footer {
-	@apply bg-primary text-background;
-}
-
-body {
-	font-size: clamp(18px, calc(.5vw + .5vh + 1.5vmin - .2vmax), 32px);
-}
-
-main {
-	@apply w-full h-full;
-}
-
-.footer-text {
-	font-size: 15.6vw;
-	font-size: clamp(18px, 15.6vw, 15.6vw);
-	font-family: 'Right Grotesk', sans-serif;
-	@apply text-center;
-}
-
-.sticky-container {
-	// @apply flex;
-}
-
-.sticky-wrapper	{
-  overflow-x: hidden;
-  display: flex;
-  position: sticky;
-  top:0;
 }
