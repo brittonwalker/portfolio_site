@@ -33,7 +33,6 @@ export default class SideScrollers {
           start: `top bottom-=${el.clientHeight * index}px`,
           end: () => '-=1px',
           scrub: true,
-          markers: true,
         },
       });
 
