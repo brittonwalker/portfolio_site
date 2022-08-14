@@ -29,14 +29,16 @@ export default class Article {
     this.name = this.DOM.title.innerText;
     this.experience = window.experience;
     this.isAnimating = false;
-    this.show = this.show.bind(this);
-    this.hide = this.hide.bind(this);
     this.init();
   }
   init() {
-    this.DOM.trigger.addEventListener('click', () => this.show());
+    this.DOM.trigger.addEventListener('click', () => this.open());
   }
-  show() {
+  open = () => {
+    if (this.isAnimating) return;
+    this.experience.articles.open(this);
+  };
+  show = () => {
     if (this.isAnimating) return;
     this.isAnimating = true;
     this.experience.articles.current = this;
@@ -66,7 +68,7 @@ export default class Article {
         ease: 'expo',
         duration: 1,
       })
-      .addLabel('start', '>')
+      .addLabel('start', '<')
       .to(
         title,
         {
@@ -94,8 +96,8 @@ export default class Article {
       );
 
     return openTimeline;
-  }
-  hide() {
+  };
+  hide = () => {
     if (this.isAnimating) return;
     this.isAnimating = true;
 
@@ -152,5 +154,5 @@ export default class Article {
       );
 
     return closeTimeline;
-  }
+  };
 }

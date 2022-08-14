@@ -40,9 +40,5 @@ export default class Experience {
       ...document.querySelectorAll('.sticky-container'),
     ]);
     this.articles = new Articles(document.querySelector('.article__wrap'));
-
-    this.init();
   }
-
-  init() {}
 }
