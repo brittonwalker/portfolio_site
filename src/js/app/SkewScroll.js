@@ -6,14 +6,12 @@ export default class SkewScroll {
       els: Array.isArray(els) ? els : [els],
     };
     this.currentPos = window.pageYOffset;
-    // this.maxSkew = 1;
-    // this.minSkew = 0;
-    // this.direction = direction === 'y' ? 'skewY' : 'skewX';
     this.options = {
       ...{
         direction: 'skewY',
         maxSkew: 1,
         minSkew: 0,
+        speed: 0.25,
       },
       ...options,
     };
@@ -23,9 +21,9 @@ export default class SkewScroll {
   update = () => {
     const newPos = window.pageYOffset;
     const diff = newPos - this.currentPos;
-    const { direction, maxSkew, minSkew } = this.options;
+    const { direction, maxSkew, minSkew, speed } = this.options;
 
-    let skew = diff * 0.25;
+    let skew = diff * speed;
 
     if (skew > maxSkew || skew < minSkew) {
       if (skew > maxSkew) {
