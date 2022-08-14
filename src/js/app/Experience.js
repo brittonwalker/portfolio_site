@@ -6,7 +6,6 @@ import MomentumScrolling from './MomentumScrolling';
 import Navigation from './Navigation';
 import SideScrollers from './SideScrollers';
 import StickyScroll from './StickyScroll';
-import Work from './Work';
 import Articles from './Articles';
 
 let DOM = {
