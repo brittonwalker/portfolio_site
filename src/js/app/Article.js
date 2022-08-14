@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-
+import { wrapLines } from './utils';
 export default class Article {
   DOM = {
     el: null,
@@ -33,6 +33,7 @@ export default class Article {
   }
   init() {
     this.DOM.trigger.addEventListener('click', () => this.open());
+    wrapLines([this.DOM.description, this.DOM.title], 'div', 'oh');
   }
   open = () => {
     if (this.isAnimating) return;
