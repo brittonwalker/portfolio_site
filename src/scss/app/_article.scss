@@ -1,0 +1,42 @@
+.article {
+	@apply h-full opacity-0 pointer-events-none hidden;
+	&--current {
+		@apply block opacity-100 pointer-events-auto;
+	};
+	&__wrap {
+		@apply overflow-hidden fixed left-0 bottom-0 h-0 max-h-screen w-screen bg-primary text-background pointer-events-none;
+		&--active {
+			@apply opacity-100 pointer-events-auto;
+		}
+	}
+	&__container {
+		@apply mx-auto max-w-screen-xl px-4 pt-[20vh] h-full;
+	}
+	&__title {
+		font-size: clamp(24px, calc(4vw + 4vh + 2vmin - .2vmax), 84px);
+		line-height: 110%;
+	}
+	&__content {
+		@apply grid grid-cols-2 gap-4 h-full;
+	}
+	&__description {
+	}
+	&__img-wrap {
+		@apply w-[33vw] h-full overflow-hidden;
+	}
+	&__img {
+		@apply w-full h-full object-cover;
+	}
+	&__close {
+		@apply p-8;
+	}
+	&__next {
+		@apply p-8;
+	}
+	&__previous {
+		@apply  p-8;
+	}
+	&__controls {
+		@apply fixed top-0 left-0 z-10;
+	}
+}

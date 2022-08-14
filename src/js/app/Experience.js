@@ -6,6 +6,8 @@ import MomentumScrolling from './MomentumScrolling';
 import Navigation from './Navigation';
 import SideScrollers from './SideScrollers';
 import StickyScroll from './StickyScroll';
+import Work from './Work';
+import Articles from './Articles';
 
 let DOM = {
   textRevealElements: document.querySelectorAll('.text-reveal'),
@@ -23,10 +25,6 @@ export default class Experience {
     instance = this;
     window.experience = this;
 
-    this.init();
-  }
-
-  init() {
     this.textLinesReveal = new TextLinesReveal(
       document.querySelectorAll('.text-reveal')
     ).in();
@@ -42,5 +40,10 @@ export default class Experience {
     this.stickyScrollers = new StickyScroll([
       ...document.querySelectorAll('.sticky-container'),
     ]);
+    this.articles = new Articles(document.querySelector('.article__wrap'));
+
+    this.init();
   }
+
+  init() {}
 }
