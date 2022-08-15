@@ -1,4 +1,5 @@
 import Article from './Article';
+import ArticleScroll from './ArticleScroll';
 import gsap from 'gsap';
 
 export default class Articles {
@@ -7,22 +8,30 @@ export default class Articles {
       el: el,
       items: Array.from(el.querySelectorAll('.article')),
       controls: {
+        container: el.querySelector('.article__controls'),
         close: document.querySelector('.article__close'),
         next: document.querySelector('.article__next'),
         prev: document.querySelector('.article__prev'),
       },
     };
+    this.scroller = new ArticleScroll({
+      container: document.querySelector('.float-container'),
+      wrapper: document.querySelector('.float-wrapper'),
+      items: [...document.querySelectorAll('.float-container .float-item')],
+    });
     this.current = null;
     this.instances = [...this.DOM.items.map((item) => new Article(item))];
     this.open = this.open.bind(this);
     this.init();
   }
+
   init() {
     const { close, next, prev } = this.DOM.controls;
     close.addEventListener('click', () => this.close());
     next.addEventListener('click', () => this.next());
     prev.addEventListener('click', () => this.prev());
   }
+
   keyboardControls = (e) => {
     if (e.keyCode === 39) {
       this.next();
@@ -32,19 +41,30 @@ export default class Articles {
       this.close();
     }
   };
+
   open = async (article) => {
     if (this.current && !this.current.isAnimating) this.current.hide();
     this.current = article;
+    const { close, next, prev } = this.DOM.controls;
+    gsap.set([close, prev, next], {
+      opacity: 0,
+    });
     await gsap.to(this.DOM.el, {
       height: '100%',
       pointerEvents: 'auto',
       ease: 'expo',
       duration: 1,
     });
+    gsap.to([close, prev, next], {
+      opacity: 1,
+      stagger: 0.1,
+      duration: 0.3,
+    });
     this.current.show();
     this.isAnimating = false;
     document.addEventListener('keydown', this.keyboardControls);
   };
+
   next = () => {
     if (this.isAnimating) return;
     this.isAnimating = true;
@@ -61,6 +81,7 @@ export default class Articles {
       this.isAnimating = false;
     }
   };
+
   prev = () => {
     if (this.isAnimating) return;
     const { instances, current } = this;
@@ -76,11 +97,18 @@ export default class Articles {
       this.isAnimating = false;
     }
   };
+
   close = () => {
     const { current } = this;
     if (this.isAnimating) return;
     if (!current.isAnimating) {
       this.isAnimating = true;
+      const { close, prev, next } = this.DOM.controls;
+      gsap.to([next, prev, close], {
+        opacity: 0,
+        duration: 0.3,
+        stagger: 0.1,
+      });
       current.hide().then(() => {
         this.isAnimating = false;
         this.current = null;

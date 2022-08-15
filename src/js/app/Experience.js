@@ -1,20 +1,13 @@
 import TextLinesReveal from './TextLinesReveal';
 import SkewScroll from './SkewScroll';
 import Cursor from './Cursor';
-import Links from './Links';
 import MomentumScrolling from './MomentumScrolling';
 import Navigation from './Navigation';
 import SideScrollers from './SideScrollers';
 import StickyScroll from './StickyScroll';
 import Articles from './Articles';
 
-let DOM = {
-  textRevealElements: document.querySelectorAll('.text-reveal'),
-  links: document.querySelectorAll('a'),
-};
-
 let instance = null;
-
 export default class Experience {
   constructor() {
     if (instance) {

@@ -19,3 +19,15 @@ h1 {
 	@apply text-9xl;
 	font-family: 'Right Grotesk', sans-serif;
 }
+
+.intro {
+	@apply min-h-screen flex justify-end;
+	&__title {
+		@apply text-[13vw];
+		font-family: 'Right Grotesk', sans-serif;
+	}
+}
+
+.text-medium {
+	font-size: clamp(20px, 2vw, 34px);
+}
