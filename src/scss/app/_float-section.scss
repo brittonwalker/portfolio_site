@@ -1,11 +1,17 @@
 .float-wrapper	{
-	@apply flex sticky top-0 overflow-x-hidden h-screen py-9 gap-8 px-8;
+	@apply flex sticky top-0 overflow-x-hidden h-screen py-9 px-8 flex-col;
 }
 
 .float {
 	&__number {
 		font-family: "Right Grotesk";
 		font-size: clamp(24px, 6.6vh, 64px);
+	}
+	&__inner {
+		@apply flex h-full gap-8;
+	}
+	&__section-title {
+		@apply sticky top-0 left-0 pb-8;
 	}
 }
 
@@ -21,6 +27,9 @@
 	&__tech {
 		font-size: clamp(16px, 3.6vh, 24px);
 		@apply mt-4;
+	}
+	&__inner {
+		@apply flex h-full;
 	}
 }
 
