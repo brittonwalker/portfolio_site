@@ -43,6 +43,7 @@ export default class Articles {
   };
 
   open = async (article) => {
+    document.body.classList.add('overflow-hidden');
     if (this.current && !this.current.isAnimating) this.current.hide();
     this.current = article;
     const { close, next, prev } = this.DOM.controls;
@@ -100,26 +101,25 @@ export default class Articles {
 
   close = () => {
     const { current } = this;
-    if (this.isAnimating) return;
-    if (!current.isAnimating) {
-      this.isAnimating = true;
-      const { close, prev, next } = this.DOM.controls;
-      gsap.to([next, prev, close], {
-        opacity: 0,
-        duration: 0.3,
-        stagger: 0.1,
+    if (this.isAnimating || current.isAnimating) return;
+    this.isAnimating = true;
+    const { close, prev, next } = this.DOM.controls;
+    gsap.to([next, prev, close], {
+      opacity: 0,
+      duration: 0.3,
+      stagger: 0.1,
+    });
+    current.hide().then(() => {
+      this.isAnimating = false;
+      document.body.classList.remove('overflow-hidden');
+      this.current = null;
+      gsap.to('.article__wrap', {
+        height: '0',
+        pointerEvents: 'none',
+        ease: 'expo',
+        duration: 1,
       });
-      current.hide().then(() => {
-        this.isAnimating = false;
-        this.current = null;
-        gsap.to('.article__wrap', {
-          height: '0',
-          pointerEvents: 'none',
-          ease: 'expo',
-          duration: 1,
-        });
-      });
-    }
+    });
     document.removeEventListener('keydown', this.keyboardControls);
   };
 }
