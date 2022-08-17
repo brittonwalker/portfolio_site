@@ -8,7 +8,7 @@
 		font-size: clamp(24px, 6.6vh, 64px);
 	}
 	&__inner {
-		@apply flex h-full gap-8;
+		@apply flex h-full gap-8 pb-8;
 	}
 	&__section-title {
 		@apply sticky top-0 left-0 pb-8;

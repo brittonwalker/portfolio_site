@@ -46,13 +46,14 @@ export default class Article {
 
     const { el, title, container, imgWrap, img, description } = this.DOM;
 
-    const openTimeline = gsap.timeline({
+    this.tl = gsap.timeline({
       defaults: { duration: 0.5, ease: 'ease' },
       onComplete: () => {
         this.isAnimating = false;
       },
     });
-    openTimeline
+
+    this.tl
       .add(() => {
         gsap.set(title, {
           y: '100%',
@@ -96,7 +97,7 @@ export default class Article {
         'start'
       );
 
-    return openTimeline;
+    return this.tl;
   };
   hide = () => {
     if (this.isAnimating) return;
@@ -104,7 +105,7 @@ export default class Article {
 
     const { el, title, container, imgWrap, img, description } = this.DOM;
 
-    const closeTimeline = gsap.timeline({
+    this.tl = gsap.timeline({
       defaults: { duration: 0.5, ease: 'ease' },
       onComplete: () => {
         el.classList.remove('article--current');
@@ -112,10 +113,10 @@ export default class Article {
       },
     });
 
-    closeTimeline
+    this.tl
       .addLabel('start', 0)
       .add(() => {
-        closeTimeline.set(container, {
+        this.tl.set(container, {
           pointerEvents: 'none',
         });
       })
@@ -154,6 +155,6 @@ export default class Article {
         '-=1'
       );
 
-    return closeTimeline;
+    return this.tl;
   };
 }

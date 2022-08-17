@@ -17,9 +17,10 @@
 		line-height: 110%;
 	}
 	&__content {
-		@apply grid grid-cols-2 gap-4 h-full;
+		@apply grid grid-cols-1 gap-4 h-full;
 	}
 	&__description {
+		@apply max-w-[960px];
 	}
 	&__img-wrap {
 		@apply w-[33vw] h-full overflow-hidden;

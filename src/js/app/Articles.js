@@ -13,6 +13,11 @@ export default class Articles {
         next: document.querySelector('.article__next'),
         prev: document.querySelector('.article__prev'),
       },
+      counter: {
+        container: el.querySelector('.article__counter'),
+        current: el.querySelector('.article__counter-current'),
+        total: el.querySelector('.article__counter-total'),
+      },
     };
     this.scroller = new ArticleScroll({
       container: document.querySelector('.float-container'),
@@ -21,6 +26,10 @@ export default class Articles {
     });
     this.current = null;
     this.instances = [...this.DOM.items.map((item) => new Article(item))];
+    this.counterData = {
+      current: 0,
+      total: this.instances.length,
+    };
     this.open = this.open.bind(this);
     this.init();
   }
@@ -30,7 +39,12 @@ export default class Articles {
     close.addEventListener('click', () => this.close());
     next.addEventListener('click', () => this.next());
     prev.addEventListener('click', () => this.prev());
+    this.DOM.counter.total.innerHTML = this.counterData.total;
   }
+
+  updateCounter = (index) => {
+    this.DOM.counter.current.innerHTML = index;
+  };
 
   keyboardControls = (e) => {
     if (e.keyCode === 39) {
@@ -46,6 +60,8 @@ export default class Articles {
     document.body.classList.add('overflow-hidden');
     if (this.current && !this.current.isAnimating) this.current.hide();
     this.current = article;
+    const index = this.instances.indexOf(article);
+    this.updateCounter(index + 1);
     const { close, next, prev } = this.DOM.controls;
     gsap.set([close, prev, next], {
       opacity: 0,
@@ -73,6 +89,7 @@ export default class Articles {
     const index = instances.indexOf(current);
     const nextItem = instances[index + 1] || instances[0];
     if (nextItem && !current.isAnimating) {
+      this.updateCounter(instances.indexOf(nextItem) + 1);
       current.hide().then((test) => {
         nextItem.show().then(() => {
           this.isAnimating = false;
@@ -89,6 +106,7 @@ export default class Articles {
     const index = instances.indexOf(current);
     const prevItem = instances[index - 1] || instances[instances.length - 1];
     if (prevItem && !current.isAnimating) {
+      this.updateCounter(instances.indexOf(prevItem) + 1);
       current.hide().then(() => {
         prevItem.show().then(() => {
           this.isAnimating = false;
