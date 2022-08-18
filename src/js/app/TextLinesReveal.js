@@ -1,5 +1,5 @@
 import SplitType from 'split-type';
-import { wrapLines } from './utils';
+import { wrapLines, isInViewport } from './utils';
 import gsap from 'gsap';
 
 export default class TextLinesReveal {
@@ -14,7 +14,9 @@ export default class TextLinesReveal {
     this.lines = [];
 
     for (const el of this.DOM.animationElems) {
-      const SplitTypeInstance = new SplitType(el, { types: 'lines' });
+      const SplitTypeInstance = new SplitType(el, {
+        split: 'lines',
+      });
       wrapLines(SplitTypeInstance.lines, 'div', 'oh');
       this.lines.push(SplitTypeInstance.lines);
       this.SplitTypeInstances.push(SplitTypeInstance);
@@ -23,17 +25,17 @@ export default class TextLinesReveal {
     this.initEvents();
   }
   in() {
+    if (this.isVisible) return;
     this.isVisible = true;
 
     gsap.killTweensOf(this.lines);
     return gsap
-      .timeline({ defaults: { duration: 1, ease: 'slow' } })
+      .timeline({ defaults: { duration: 1, ease: 'ease-out' } })
       .set(this.lines, {
         y: '150%',
       })
       .to(this.lines, {
         y: '0%',
-        stagger: 1,
       });
   }
   out() {
@@ -51,6 +53,17 @@ export default class TextLinesReveal {
       });
   }
   initEvents() {
+    gsap.set(this.lines, {
+      y: '-150%',
+    });
+
+    this.SplitTypeInstances[0].elements.forEach((el) => {
+      window.addEventListener('scroll', () => {
+        if (isInViewport(el)) {
+          this.in();
+        }
+      });
+    });
     // window.addEventListener('resize', () => {
     //   this.lines = [];
     //   for (const instance of this.SplitTypeInstances) {

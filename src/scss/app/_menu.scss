@@ -16,7 +16,8 @@ body.is-active {
 }
 
 main {
-	@apply w-full h-full relative transition-all duration-1000 ease-in-out left-0;
+	@apply w-full h-full relative left-0;
+	@apply transition-all duration-1000 ease-in-out;
 }
 
 .menu-trigger {

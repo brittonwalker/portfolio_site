@@ -17,21 +17,26 @@ export default class Experience {
     instance = this;
     window.experience = this;
 
-    this.textLinesReveal = new TextLinesReveal(
-      document.querySelectorAll('.text-reveal')
-    ).in();
-    this.skewScroll = new SkewScroll([
-      ...document.querySelectorAll('.skew-item'),
-    ]);
     this.cursor = new Cursor();
+    this.animatedELs = document.querySelectorAll('.text-reveal');
+    this.animatedELs.forEach((el) => {
+      new TextLinesReveal(el);
+    }),
+      (this.articles = new Articles(document.querySelector('.article__wrap')));
     this.pageScroll = new MomentumScrolling(false);
     this.menu = new Navigation(document.querySelector('.main-nav'));
     this.workItems = new SideScrollers([
       ...document.querySelectorAll('.work__scroller'),
     ]);
-    this.stickyScrollers = new StickyScroll([
-      ...document.querySelectorAll('.sticky-container'),
-    ]);
-    this.articles = new Articles(document.querySelector('.article__wrap'));
+    // this.textLinesReveal = new TextLinesReveal(
+    //   document.querySelectorAll('.text-reveal')
+    // );
+    // this.skewScroll = new SkewScroll([
+    //   ...document.querySelectorAll('.skew-item'),
+    // ]);
+
+    // this.stickyScrollers = new StickyScroll([
+    //   ...document.querySelectorAll('.sticky-container'),
+    // ]);
   }
 }

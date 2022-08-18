@@ -39,5 +39,11 @@
 	}
 	&__controls {
 		@apply fixed top-0 left-0 z-10;
+		> * {
+			@apply opacity-0;
+		}
+	}
+	&__counter {
+		@apply fixed bottom-0 right-0 z-10 p-8 opacity-0;
 	}
 }

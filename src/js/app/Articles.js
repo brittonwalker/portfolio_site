@@ -63,7 +63,8 @@ export default class Articles {
     const index = this.instances.indexOf(article);
     this.updateCounter(index + 1);
     const { close, next, prev } = this.DOM.controls;
-    gsap.set([close, prev, next], {
+    const { container: counterContainer } = this.DOM.counter;
+    gsap.set([close, prev, next, counterContainer], {
       opacity: 0,
     });
     await gsap.to(this.DOM.el, {
@@ -72,9 +73,8 @@ export default class Articles {
       ease: 'expo',
       duration: 1,
     });
-    gsap.to([close, prev, next], {
+    gsap.to([close, prev, next, counterContainer], {
       opacity: 1,
-      stagger: 0.1,
       duration: 0.3,
     });
     this.current.show();
@@ -122,10 +122,10 @@ export default class Articles {
     if (this.isAnimating || current.isAnimating) return;
     this.isAnimating = true;
     const { close, prev, next } = this.DOM.controls;
-    gsap.to([next, prev, close], {
+    const { container: counterContainer } = this.DOM.counter;
+    gsap.to([next, prev, close, counterContainer], {
       opacity: 0,
       duration: 0.3,
-      stagger: 0.1,
     });
     current.hide().then(() => {
       this.isAnimating = false;

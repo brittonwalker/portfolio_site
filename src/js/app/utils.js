@@ -7,13 +7,12 @@ const preloadImages = (selector) => {
   });
 };
 
-const wrapLines = (elems, wrapType, wrapClass) => {
-  elems.forEach((char) => {
-    // add a wrap for every char (overflow hidden)
+const wrapLines = (arr, wrapType, wrapClass) => {
+  arr.forEach((el) => {
     const wrapEl = document.createElement(wrapType);
     wrapEl.classList = wrapClass;
-    char.parentNode.appendChild(wrapEl);
-    wrapEl.appendChild(char);
+    el.parentNode.appendChild(wrapEl);
+    wrapEl.appendChild(el);
   });
 };
 
