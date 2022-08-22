@@ -20,9 +20,9 @@ export default class Articles {
       },
     };
     this.scroller = new ArticleScroll({
-      container: document.querySelector('.float-container'),
-      wrapper: document.querySelector('.float-wrapper'),
-      items: [...document.querySelectorAll('.float-container .float-item')],
+      container: document.querySelector('.float__container'),
+      wrapper: document.querySelector('.float__wrapper'),
+      items: [...document.querySelectorAll('.float__container .float-item')],
     });
     this.current = null;
     this.instances = [...this.DOM.items.map((item) => new Article(item))];
@@ -57,7 +57,7 @@ export default class Articles {
   };
 
   open = async (article) => {
-    document.body.classList.add('overflow-hidden');
+    document.body.classList.add('lock-body');
     if (this.current && !this.current.isAnimating) this.current.hide();
     this.current = article;
     const index = this.instances.indexOf(article);
@@ -90,7 +90,8 @@ export default class Articles {
     const nextItem = instances[index + 1] || instances[0];
     if (nextItem && !current.isAnimating) {
       this.updateCounter(instances.indexOf(nextItem) + 1);
-      current.hide().then((test) => {
+      current.hide().then(() => {
+        this.DOM.el.scrollTo(0, 0);
         nextItem.show().then(() => {
           this.isAnimating = false;
         });
@@ -108,6 +109,7 @@ export default class Articles {
     if (prevItem && !current.isAnimating) {
       this.updateCounter(instances.indexOf(prevItem) + 1);
       current.hide().then(() => {
+        this.DOM.el.scrollTo(0, 0);
         prevItem.show().then(() => {
           this.isAnimating = false;
         });
@@ -129,7 +131,7 @@ export default class Articles {
     });
     current.hide().then(() => {
       this.isAnimating = false;
-      document.body.classList.remove('overflow-hidden');
+      document.body.classList.remove('lock-body');
       this.current = null;
       gsap.to('.article__wrap', {
         height: '0',

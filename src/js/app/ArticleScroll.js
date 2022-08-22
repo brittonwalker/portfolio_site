@@ -3,6 +3,7 @@ export default class ArticleScroll {
     this.DOM = {
       container,
       wrapper,
+      inner: wrapper.querySelector('.float__inner'),
       items: Array.isArray(items) ? items : [items],
     };
     this.init();
@@ -14,9 +15,10 @@ export default class ArticleScroll {
   }
 
   setStickyELs = () => {
-    const { container, wrapper } = this.DOM;
-    const containerHeight = wrapper.scrollWidth;
-    container.setAttribute('style', 'height: ' + containerHeight + 'px');
+    const { container, wrapper, inner } = this.DOM;
+    const offset = wrapper.scrollWidth - inner.scrollWidth;
+    this.maxScrollContent = inner.scrollWidth - window.innerWidth - offset;
+    container.setAttribute('style', 'height: ' + this.maxScrollContent + 'px');
   };
 
   bindEvents = () => {
@@ -29,6 +31,7 @@ export default class ArticleScroll {
   };
 
   onScroll = (evt) => {
+    const { deltaY } = evt;
     const { container } = this.DOM;
 
     const stickyEl = container;
@@ -43,11 +46,8 @@ export default class ArticleScroll {
     let canSideScroll = isBelowTop && isBelowBottom;
 
     if (canSideScroll && inView) {
-      scrollEl.scrollLeft += evt.deltaY;
-    } else if (isBelowTop) {
-      scrollEl.scrollLeft = scrollEl.scrollWidth;
-    } else if (isBelowBottom) {
-      scrollEl.scrollLeft = 0;
+      scrollEl.scrollLeft += deltaY;
+      console.log(scrollEl.scrollLeft);
     }
   };
 }

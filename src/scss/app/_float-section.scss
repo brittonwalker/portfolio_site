@@ -1,67 +1,57 @@
-.float-wrapper	{
-	@apply flex sticky top-0 overflow-x-hidden h-screen py-9 px-8 flex-col;
-}
-
 .float {
-	&__number {
-		font-family: "Right Grotesk";
-		font-size: clamp(24px, 6.6vh, 64px);
-	}
 	&__inner {
 		@apply flex h-full gap-8 pb-8;
 	}
 	&__section-title {
 		@apply sticky top-0 left-0 pb-8;
 	}
+	&__wrapper	{
+		@apply flex sticky top-0 overflow-x-hidden h-screen py-9 px-8 flex-col;
+	}
 }
 
 .float-item {
-	@apply min-w-[54vh] h-full px-8 pb-8 bg-primary text-background rounded-3xl;
+	$self: &;
+	@apply min-w-[54vh] h-full px-8 pb-8 bg-primary text-background rounded-3xl flex flex-col justify-between overflow-hidden border;
 	p {
 		@apply m-0;
 	}
+	&:hover {
+		#{ $self }__icon {
+			@apply -translate-x-[0];
+		}
+	}
+	&__text {
+		@apply flex flex-col;
+	}
+	&__number {
+		@apply w-[fit-content];
+		font-family: "Right Grotesk";
+		font-size: clamp(24px, 6.6vh, 64px);
+	}
+	&__cta {
+		@apply flex justify-end;
+	}
+	&__icon {
+		font-family: "Right Grotesk";
+		font-size: clamp(24px, 12vh, 140px);
+		@apply transform -translate-x-[100%] transition-transform duration-300 w-[fit-content] leading-[100%];
+	}
+	&__icon-wrap {
+		@apply overflow-hidden;
+	}
 	&__title {
-		@apply mt-0 leading-[110%];
+		@apply w-[fit-content] mt-0 leading-[110%];
 		font-size: clamp(24px, 3.6vh, 34px);
 	}
 	&__tech {
 		font-size: clamp(16px, 3.6vh, 24px);
-		@apply mt-4;
+		@apply w-[fit-content] mt-4;
 	}
 	&__inner {
-		@apply flex h-full;
+		@apply flex h-full overflow-hidden;
+	}
+	&__thumb {
+		@apply self-end overflow-hidden;
 	}
 }
-
-// .float-container {
-// 	@apply p-8;
-// }
-
-// .float-wrapper {
-// 	@apply grid gap-y-8;
-// }
-
-// .float-item {
-// 	@apply py-4 transition-colors duration-300 relative overflow-hidden -mx-[32px] px-8 w-fit;
-// 	&:after {
-// 		content: "";
-// 		display: block;
-// 		@apply bg-primary;
-// 		@apply w-full h-full;
-// 		@apply absolute;
-// 		@apply bottom-0;
-// 		@apply left-0;
-// 		@apply transform translate-y-[101%] transition-transform duration-300;
-// 		@apply mix-blend-difference;
-// 	}
-// 	&__title {
-// 		font-size: clamp(18px, 2.5vw, 48px);
-// 		line-height: 110%;
-// 		@apply m-0 w-fit;
-// 	}
-// 	&:hover {
-// 		&:after {
-// 			@apply -translate-y-[0%];
-// 		}
-// 	}
-// }
