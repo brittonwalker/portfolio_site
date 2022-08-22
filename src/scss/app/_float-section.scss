@@ -1,12 +1,15 @@
 .float {
 	&__inner {
-		@apply flex h-full gap-8 pb-8;
+		@apply flex h-full gap-8;
 	}
 	&__section-title {
 		@apply sticky top-0 left-0 pb-8;
 	}
 	&__wrapper	{
 		@apply flex sticky top-0 overflow-x-hidden h-screen py-9 px-8 flex-col;
+	}
+	&__inner-wrapper {
+		@apply w-fit h-full;
 	}
 }
 

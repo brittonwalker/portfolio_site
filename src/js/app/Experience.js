@@ -42,7 +42,7 @@ export default class Experience {
   }
   createPreloader() {
     this.preloader = new Preloader();
-    this.preloader.on('completed', () => this.onPreloaded());
+    this.preloader.on('preloaded', () => this.onPreloaded());
   }
   onPreloaded() {
     this.preloader.destroy();

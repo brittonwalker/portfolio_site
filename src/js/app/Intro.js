@@ -18,10 +18,12 @@ export default class Intro {
           duration: 1,
           ease: 'ease-linear',
         },
+        onComplete: () => {
+          document.body.classList.remove('loading');
+        },
       })
       .to(this.lines, {
         y: '0%',
-        // stagger: 0.5,
       }));
   };
 }

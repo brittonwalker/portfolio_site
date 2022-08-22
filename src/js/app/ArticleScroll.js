@@ -1,3 +1,5 @@
+import normalizeWheel from 'normalize-wheel';
+
 export default class ArticleScroll {
   constructor({ container, wrapper, items }) {
     this.DOM = {
@@ -16,13 +18,13 @@ export default class ArticleScroll {
 
   setStickyELs = () => {
     const { container, wrapper, inner } = this.DOM;
-    const offset = wrapper.scrollWidth - inner.scrollWidth;
-    this.maxScrollContent = inner.scrollWidth - window.innerWidth - offset;
+    this.maxScrollContent = inner.scrollWidth;
     container.setAttribute('style', 'height: ' + this.maxScrollContent + 'px');
   };
 
   bindEvents = () => {
     window.addEventListener('wheel', (evt) => this.onScroll(evt));
+    window.addEventListener('resize', () => this.onResize());
   };
 
   isElementInViewport = (el) => {
@@ -31,7 +33,7 @@ export default class ArticleScroll {
   };
 
   onScroll = (evt) => {
-    const { deltaY } = evt;
+    const { pixelY } = normalizeWheel(evt);
     const { container } = this.DOM;
 
     const stickyEl = container;
@@ -46,8 +48,15 @@ export default class ArticleScroll {
     let canSideScroll = isBelowTop && isBelowBottom;
 
     if (canSideScroll && inView) {
-      scrollEl.scrollLeft += deltaY;
-      console.log(scrollEl.scrollLeft);
+      scrollEl.scrollLeft += pixelY;
+    } else if (isBelowTop) {
+      scrollEl.scrollLeft = scrollEl.scrollWidth;
+    } else if (isBelowBottom) {
+      scrollEl.scrollLeft = 0;
     }
+  };
+
+  onResize = () => {
+    this.setStickyELs();
   };
 }

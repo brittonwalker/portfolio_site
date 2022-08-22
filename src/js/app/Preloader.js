@@ -24,7 +24,7 @@ export default class Preloader extends Component {
       element.src = element.getAttribute('data-src');
     });
   }
-  onAssetLoaded(image) {
+  onAssetLoaded() {
     this.length += 1;
     const percent = this.length / this.elements.images.length;
     this.elements.progress.innerHTML = `${Math.round(percent * 100)}%`;
@@ -42,7 +42,7 @@ export default class Preloader extends Component {
         autoAlpha: 0,
       });
       this.animateOut.call((_) => {
-        this.trigger('completed');
+        this.trigger('preloaded');
       });
     });
   }

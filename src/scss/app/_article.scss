@@ -1,10 +1,14 @@
+.lock-body {
+	@apply overflow-hidden;
+}
+
 .article {
 	@apply h-full opacity-0 pointer-events-none hidden;
 	&--current {
 		@apply block opacity-100 pointer-events-auto;
 	};
 	&__wrap {
-		@apply overflow-hidden fixed left-0 bottom-0 h-0 max-h-screen w-screen bg-primary text-background pointer-events-none;
+		@apply overflow-scroll fixed left-0 bottom-0 h-0 max-h-screen w-screen bg-primary text-background pointer-events-none;
 		&--active {
 			@apply opacity-100 pointer-events-auto;
 		}
@@ -23,7 +27,7 @@
 		@apply max-w-[960px];
 	}
 	&__img-wrap {
-		@apply w-[33vw] h-full overflow-hidden;
+		@apply h-full overflow-hidden;
 	}
 	&__img {
 		@apply w-full h-full object-cover;

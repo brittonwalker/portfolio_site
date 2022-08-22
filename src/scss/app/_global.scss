@@ -5,6 +5,9 @@ body {
 	::selection {
 		@apply bg-hightlight;
 	}
+	&.loading {
+		@apply overflow-hidden;
+	}
 }
 
 a {
