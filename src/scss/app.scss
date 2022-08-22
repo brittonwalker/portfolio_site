@@ -11,6 +11,7 @@
 @import './app/_footer.scss';
 @import './app/_float-section.scss';
 @import './app/_article.scss';
+@import './app/preloader.scss';
 
 .text-container {
 	margin: 0 auto;
@@ -27,4 +28,11 @@
 
 .oh {
 	@apply overflow-hidden;
+}
+
+.start {
+	@apply p-8 h-screen flex items-end;
+	&-text {
+		font-size: clamp(24px, calc(14vw - 64px), 294px);
+	}
 }

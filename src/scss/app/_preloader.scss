@@ -1,0 +1,7 @@
+.preloader {
+	@apply h-screen w-screen p-8 fixed top-0 left-0 bg-background z-50;
+	font-size: 100px;
+	&__content {
+		@apply h-full flex flex-col justify-center items-center;
+	}
+}
