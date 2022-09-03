@@ -33,6 +33,6 @@
 .start {
 	@apply p-8 h-screen flex items-end;
 	&-text {
-		font-size: clamp(24px, calc(14vw - 64px), 294px);
+		font-size: clamp(32px, calc(14vw - 64px), 294px);
 	}
 }

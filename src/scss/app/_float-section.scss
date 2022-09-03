@@ -1,21 +1,22 @@
 .float {
 	&__inner {
-		@apply flex h-full gap-8;
+		@apply flex flex-col gap-8 xl:flex-row xl:h-full;
 	}
 	&__section-title {
-		@apply sticky top-0 left-0 pb-8;
+		@apply xl:sticky xl:top-0 xl:left-0 xl:pb-8;
 	}
 	&__wrapper	{
-		@apply flex sticky top-0 overflow-x-hidden h-screen py-9 px-8 flex-col;
+		@apply xl:flex xl:sticky xl:top-0 xl:overflow-x-hidden xl:h-screen xl:py-9 xl:px-8 xl:flex-col;
 	}
 	&__inner-wrapper {
-		@apply w-fit h-full;
+		@apply w-fit h-full px-4 xl:px-0;
 	}
 }
 
 .float-item {
 	$self: &;
-	@apply min-w-[54vh] h-full px-8 pb-8 bg-primary text-background rounded-3xl flex flex-col justify-between overflow-hidden border;
+	@apply max-w-full mx-auto h-full bg-primary text-background flex flex-col justify-between overflow-hidden border px-4 pb-4;
+	@apply xl:min-w-[54vh] xl:px-8 xl:pb-8 xl:rounded-3xl;
 	p {
 		@apply m-0;
 	}

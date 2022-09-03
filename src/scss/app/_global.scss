@@ -1,5 +1,5 @@
 body {
-	@apply bg-background text-primary cursor-none;
+	@apply bg-background text-primary;
 	font-family: 'Neue Montreal', sans-serif;
 	font-size: clamp(18px, calc(.5vw + .5vh + 1.5vmin - .2vmax), 32px);
 	::selection {
@@ -31,6 +31,6 @@ h1 {
 	}
 }
 
-.text-medium {
-	font-size: clamp(20px, 2vw, 34px);
+.text-content {
+	@apply w-[960px] max-w-full text-medium;
 }
