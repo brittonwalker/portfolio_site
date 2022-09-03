@@ -1,4 +1,3 @@
-import each from 'lodash/each';
 import EventEmitter from './EventEmitter';
 
 export default class Component extends EventEmitter {
@@ -10,13 +9,12 @@ export default class Component extends EventEmitter {
     };
 
     this.create();
-    this.addEventListeners();
   }
   create() {
     this.element = document.querySelector(this.selector);
     this.elements = {};
 
-    each(this.selectorChildren, (entry, key) => {
+    Object.entries(this.selectorChildren).forEach(([key, entry]) => {
       if (
         entry instanceof window.HTMLElement ||
         entry instanceof window.NodeList ||
@@ -34,6 +32,4 @@ export default class Component extends EventEmitter {
       }
     });
   }
-  addEventListeners() {}
-  removeEventListeners() {}
 }
