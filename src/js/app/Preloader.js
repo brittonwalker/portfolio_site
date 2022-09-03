@@ -1,4 +1,3 @@
-import { set } from 'lodash';
 import each from 'lodash/each';
 import Component from './Component';
 import gsap from 'gsap';
