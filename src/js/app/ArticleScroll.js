@@ -1,4 +1,5 @@
 import normalizeWheel from 'normalize-wheel';
+import { getBreakpoints } from './utils';
 
 export default class ArticleScroll {
   constructor({ container, wrapper, items }) {
@@ -8,18 +9,34 @@ export default class ArticleScroll {
       inner: wrapper.querySelector('.float__inner'),
       items: Array.isArray(items) ? items : [items],
     };
+
+    this.breakpoint = getBreakpoints('xl');
+    this.isMobile = null;
     this.init();
   }
 
   init() {
+    this.setCurrentBreakpoint();
     this.setStickyELs();
     this.bindEvents();
   }
 
+  setCurrentBreakpoint() {
+    const width = window.innerWidth;
+    this.isMobile = width < this.breakpoint.value;
+  }
+
   setStickyELs = () => {
-    const { container, wrapper, inner } = this.DOM;
-    this.maxScrollContent = inner.scrollWidth;
-    container.setAttribute('style', 'height: ' + this.maxScrollContent + 'px');
+    const { container, inner } = this.DOM;
+    if (!this.isMobile) {
+      this.maxScrollContent = inner.scrollWidth;
+      container.setAttribute(
+        'style',
+        'height: ' + this.maxScrollContent + 'px'
+      );
+    } else {
+      container.removeAttribute('style');
+    }
   };
 
   bindEvents = () => {
@@ -47,6 +64,8 @@ export default class ArticleScroll {
 
     let canSideScroll = isBelowTop && isBelowBottom;
 
+    console.log(scrollEl.scrollLeft);
+
     if (canSideScroll && inView) {
       scrollEl.scrollLeft += pixelY;
     } else if (isBelowTop) {
@@ -57,6 +76,7 @@ export default class ArticleScroll {
   };
 
   onResize = () => {
+    this.setCurrentBreakpoint();
     this.setStickyELs();
   };
 }
