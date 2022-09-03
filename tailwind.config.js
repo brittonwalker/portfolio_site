@@ -8,6 +8,9 @@ module.exports = {
         primary: 'rgb(245, 238, 230)',
         hightlight: '#ED1C24',
       },
+      fontSize: {
+        medium: ['clamp(20px, 2vw, 34px)', 'inherit'],
+      },
     },
   },
   plugins: [],
