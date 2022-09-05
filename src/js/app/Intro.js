@@ -1,12 +1,20 @@
 import { gsap } from 'gsap';
+import SplitType from 'split-type';
+import EventEmitter from './EventEmitter';
 import { wrapLines } from './utils';
 
-export default class Intro {
+export default class Intro extends EventEmitter {
   constructor() {
+    super();
     this.lines = document.querySelectorAll('.start-text');
-    wrapLines(document.querySelectorAll('.start-text'), 'div', 'oh');
-    gsap.set(document.querySelectorAll('.start-text'), {
-      y: '150%',
+    this.SplitTypeInstance = new SplitType(this.lines, { types: 'lines' });
+    wrapLines(this.SplitTypeInstance.lines, 'div', 'oh');
+    gsap.set(this.SplitTypeInstance.lines, {
+      // y: '150%',
+      autoAlpha: 0,
+    });
+    gsap.set('.start-paragraph', {
+      autoAlpha: 0,
     });
     this.tl = null;
   }
@@ -20,10 +28,14 @@ export default class Intro {
         },
         onComplete: () => {
           document.body.classList.remove('loading');
+          this.trigger('intro:complete');
         },
       })
-      .to(this.lines, {
-        y: '0%',
-      }));
+      .to([this.SplitTypeInstance.lines, '.start-paragraph'], {
+        // y: '0%',
+        autoAlpha: 1,
+      })).to('.start-paragraph', {
+      autoAlpha: 1,
+    });
   };
 }

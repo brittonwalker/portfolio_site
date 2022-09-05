@@ -43,6 +43,7 @@
   "dependencies": {
     "gsap": "^3.10.4",
     "imagesloaded": "^5.0.0",
+    "prefix": "^1.0.0",
     "split-type": "^0.3.2"
   }
 }

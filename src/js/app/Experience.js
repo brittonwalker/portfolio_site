@@ -9,6 +9,8 @@ import Articles from './Articles';
 import ImageReveal from './ImageReveal';
 import Preloader from './Preloader';
 import Intro from './Intro';
+import SmoothScroll from './SmoothScroll';
+import WorkController from './WorkController';
 
 let instance = null;
 export default class Experience {
@@ -26,7 +28,10 @@ export default class Experience {
       new TextLinesReveal(el);
     }),
       (this.articles = new Articles(document.querySelector('.article__wrap')));
-    this.pageScroll = new MomentumScrolling(false);
+    // this.pageScroll = new MomentumScrolling();
+    // this.pageScroll = new SmoothScroll({
+    //   element: document.getElementById('main'),
+    // });
     this.menu = new Navigation(document.querySelector('.main-nav'));
     this.workItems = new SideScrollers([
       ...document.querySelectorAll('.work__scroller'),
@@ -37,6 +42,7 @@ export default class Experience {
     });
 
     this.intro = new Intro();
+    this.workTable = new WorkController();
 
     this.createPreloader();
   }

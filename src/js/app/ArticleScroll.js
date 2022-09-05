@@ -29,7 +29,7 @@ export default class ArticleScroll {
   setStickyELs = () => {
     const { container, inner } = this.DOM;
     if (!this.isMobile) {
-      this.maxScrollContent = inner.scrollWidth;
+      this.maxScrollContent = inner.scrollWidth - window.innerWidth - 160;
       container.setAttribute(
         'style',
         'height: ' + this.maxScrollContent + 'px'
@@ -63,8 +63,6 @@ export default class ArticleScroll {
       document.documentElement.scrollTop;
 
     let canSideScroll = isBelowTop && isBelowBottom;
-
-    console.log(scrollEl.scrollLeft);
 
     if (canSideScroll && inView) {
       scrollEl.scrollLeft += pixelY;

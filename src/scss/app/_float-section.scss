@@ -6,7 +6,7 @@
 		@apply xl:sticky xl:top-0 xl:left-0 xl:pb-8;
 	}
 	&__wrapper	{
-		@apply xl:flex xl:sticky xl:top-0 xl:overflow-x-hidden xl:h-screen xl:py-9 xl:px-8 xl:flex-col;
+		@apply xl:flex xl:sticky xl:top-0 xl:overflow-x-hidden xl:h-screen xl:flex-col xl:px-8 xl:py-9;
 	}
 	&__inner-wrapper {
 		@apply w-fit h-full px-4 xl:px-0;

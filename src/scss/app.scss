@@ -12,6 +12,7 @@
 @import './app/_float-section.scss';
 @import './app/_article.scss';
 @import './app/preloader.scss';
+@import './app/work-table';
 
 .text-container {
 	margin: 0 auto;
@@ -31,7 +32,7 @@
 }
 
 .start {
-	@apply p-8 h-screen flex items-end;
+	@apply p-8 pb-32;
 	&-text {
 		font-size: clamp(32px, calc(14vw - 64px), 294px);
 	}
