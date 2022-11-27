@@ -41,6 +41,7 @@
   },
   "homepage": "https://github.com/brittonwalker/portfolio_site#readme",
   "dependencies": {
+    "@studio-freight/lenis": "^0.2.24",
     "gsap": "^3.10.4",
     "imagesloaded": "^5.0.0",
     "prefix": "^1.0.0",
