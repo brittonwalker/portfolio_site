@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import { wrapLines } from './utils';
+import TextLinesReveal from './TextLinesReveal';
 export default class Article {
   DOM = {
     el: null,

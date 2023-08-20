@@ -26,13 +26,8 @@ export default class Experience {
     this.animatedELs = document.querySelectorAll('.text-reveal');
     this.animatedELs.forEach((el) => {
       new TextLinesReveal(el);
-    }),
-      (this.articles = new Articles(document.querySelector('.article__wrap')));
-    // this.pageScroll = new MomentumScrolling();
-    // this.pageScroll = new SmoothScroll({
-    //   element: document.getElementById('main'),
-    // });
-    this.menu = new Navigation(document.querySelector('.main-nav'));
+    });
+    this.articles = new Articles(document.querySelector('.article__wrap'));
     this.workItems = new SideScrollers([
       ...document.querySelectorAll('.work__scroller'),
     ]);

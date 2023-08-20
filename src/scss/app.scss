@@ -13,27 +13,53 @@
 @import './app/_article.scss';
 @import './app/preloader.scss';
 @import './app/work-table';
+@import './app/_end.scss';
 
 .text-container {
-	margin: 0 auto;
-	a {
-		@apply border-b-2 border-primary ;
-	}
-	h1 {
-		font-size: clamp(24px, calc(4vw + 4vh + 2vmin - .2vmax), 165px);
-	}
-	p:last-of-type {
-		@apply mb-0;
-	}
+  @apply mx-auto;
+
+  a {
+    @apply border-b-2 border-primary;
+  }
+
+  h1 {
+    font-size: clamp(24px, calc(4vw + 4vh + 2vmin - 0.2vmax), 165px);
+  }
+
+  p:last-of-type {
+    @apply mb-0;
+  }
 }
 
 .oh {
-	@apply overflow-hidden;
+  @apply overflow-hidden;
 }
 
 .start {
-	@apply p-8 pb-32;
-	&-text {
-		font-size: clamp(32px, calc(14vw - 64px), 294px);
-	}
+  @apply p-8 flex flex-col border-b border-primary min-h-screen;
+
+  &-text {
+    font-size: clamp(40px, 300px, 212px);
+  }
+}
+
+.circle {
+  @apply flex-1 gap-4 flex flex-col justify-end relative;
+
+  .circ-sun {
+    // half circle
+    @apply w-64 h-28 relative overflow-hidden;
+    &:before {
+      @apply absolute top-0 left-0 w-full h-64 bg-primary rounded-full;
+      content: '';
+    }
+  }
+
+  @for $i from 1 through 10 {
+    .circ-child:nth-child(#{$i}) {
+      // increment .1 times i flex basis
+      flex: calc(0.01 * #{$i}) 1 0;
+      @apply bg-primary sticky top-0;
+    }
+  }
 }

@@ -1,3 +1,4 @@
+import gsap from 'gsap';
 // https://codepen.io/Neil98/pen/VREJZb
 // https://greensock.com/forums/topic/27450-how-to-utilize-momentuminertia-in-page-scrolling/
 export default class MomentumScrolling {
@@ -12,6 +13,8 @@ export default class MomentumScrolling {
     // For container positions
     this.dx = 0;
     this.dy = 0;
+
+    this.speed = 0.1;
 
     if (!initialize) {
       return;
@@ -43,8 +46,8 @@ export default class MomentumScrolling {
       return (1 - n) * a + n * b;
     }
 
-    this.dx = li(this.dx, this.sx, 0.07);
-    this.dy = li(this.dy, this.sy, 0.07);
+    this.dx = gsap.utils.interpolate(this.dx, this.sx, this.speed);
+    this.dy = gsap.utils.interpolate(this.dy, this.sy, this.speed);
 
     this.dx = Math.floor(this.dx * 100) / 100;
     this.dy = Math.floor(this.dy * 100) / 100;

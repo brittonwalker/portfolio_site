@@ -1,25 +1,9 @@
 import gsap from 'gsap';
 
-/**
- * demo.js
- * http://www.codrops.com
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright 2019, Codrops
- * http://www.codrops.com
- */
-
 //  https://github.com/skaltenegger/customcursor/blob/master/website/src/js/demo3.js
 
 export default class Cursor {
   constructor() {
-    this.initCursor();
-    this.initHovers();
-  }
-
-  initCursor() {
     this.outerCursor = document.querySelector('.circle-cursor--outer');
     this.innerCursor = document.querySelector('.circle-cursor--inner');
     this.outerCursorBox = this.outerCursor.getBoundingClientRect();
@@ -33,105 +17,107 @@ export default class Cursor {
     this.clientY = -100;
     this.showCursor = false;
 
-    const unveilCursor = () => {
-      gsap.set(this.innerCursor, {
-        x: this.clientX,
-        y: this.clientY,
-      });
-      gsap.set(this.outerCursor, {
-        x: this.clientX - this.outerCursorBox.width / 2,
-        y: this.clientY - this.outerCursorBox.height / 2,
-      });
-      setTimeout(() => {
-        this.outerCursorSpeed = 0.2;
-      }, 100);
-      this.showCursor = true;
-    };
-    document.addEventListener('mousemove', unveilCursor);
+    this.initCursor();
+    this.initHovers();
+  }
+
+  initCursor() {
+    document.addEventListener('mousemove', this.unveilCursor.bind(this));
 
     document.addEventListener('mousemove', (e) => {
       this.clientX = e.clientX;
       this.clientY = e.clientY;
     });
 
-    const render = () => {
-      gsap.set(this.innerCursor, {
-        x: this.clientX,
-        y: this.clientY,
-      });
-      if (!this.isStuck) {
-        gsap.to(this.outerCursor, this.outerCursorSpeed, {
-          x: this.clientX - this.outerCursorBox.width / 2,
-          y: this.clientY - this.outerCursorBox.height / 2,
-        });
-      }
-      if (this.showCursor) {
-        document.removeEventListener('mousemove', unveilCursor);
-      }
-      requestAnimationFrame(render);
-    };
-    requestAnimationFrame(render);
+    requestAnimationFrame(this.render.bind(this));
   }
 
   initHovers() {
-    const handleMouseEnter = (e) => {
-      this.isStuck = true;
-      const target = e.currentTarget;
-      const box = target.getBoundingClientRect();
-      this.outerCursorOriginals = {
-        width: this.outerCursorBox.width,
-        height: this.outerCursorBox.height,
-      };
-      gsap.to(this.outerCursor, 0.2, {
-        x: box.left,
-        y: box.top,
-        width: box.width,
-        height: box.height,
-        borderRadius: 0,
-        opacity: 0.4,
-        // borderColor: '#ff0000',
-      });
-    };
-
-    const handleMouseLeave = () => {
-      this.isStuck = false;
-      gsap.to(this.outerCursor, 0.2, {
-        width: this.outerCursorOriginals.width,
-        height: this.outerCursorOriginals.height,
-        opacity: 1,
-        borderRadius: '50%',
-        // borderColor: '#ffffff',
-      });
-    };
-
     const linkItems = document.querySelectorAll('a');
     linkItems.forEach((item) => {
-      item.addEventListener('mouseenter', handleMouseEnter);
-      item.addEventListener('mouseleave', handleMouseLeave);
+      item.addEventListener('mouseenter', this.handleMouseEnter.bind(this));
+      item.addEventListener('mouseleave', this.handleMouseLeave.bind(this));
     });
 
-    const mainNavHoverTween = gsap.to(this.outerCursor, 0.3, {
+    const mainNavLinks = document.querySelectorAll('a');
+    mainNavLinks.forEach((item) => {
+      item.addEventListener('mouseenter', this.mainNavMouseEnter.bind(this));
+      item.addEventListener('mouseleave', this.mainNavMouseLeave.bind(this));
+    });
+  }
+  unveilCursor = () => {
+    gsap.set(this.innerCursor, {
+      x: this.clientX,
+      y: this.clientY,
+    });
+    gsap.set(this.outerCursor, {
+      x: this.clientX - this.outerCursorBox.width / 2,
+      y: this.clientY - this.outerCursorBox.height / 2,
+    });
+    setTimeout(() => {
+      this.outerCursorSpeed = 0.2;
+    }, 100);
+    this.showCursor = true;
+  };
+  render = () => {
+    gsap.set(this.innerCursor, {
+      x: this.clientX,
+      y: this.clientY,
+    });
+    if (!this.isStuck) {
+      gsap.to(this.outerCursor, this.outerCursorSpeed, {
+        x: this.clientX - this.outerCursorBox.width / 2,
+        y: this.clientY - this.outerCursorBox.height / 2,
+      });
+    }
+    if (this.showCursor) {
+      document.removeEventListener('mousemove', this.unveilCursor);
+    }
+    requestAnimationFrame(this.render);
+  };
+  handleMouseEnter = (e) => {
+    this.isStuck = true;
+    const target = e.currentTarget;
+    const box = target.getBoundingClientRect();
+    this.outerCursorOriginals = {
+      width: this.outerCursorBox.width,
+      height: this.outerCursorBox.height,
+    };
+    gsap.to(this.outerCursor, 0.2, {
+      x: box.left,
+      y: box.top,
+      width: box.width,
+      height: box.height,
+      borderRadius: 0,
+      opacity: 0.4,
+      // borderColor: '#ff0000',
+    });
+  };
+  handleMouseLeave = () => {
+    this.isStuck = false;
+    gsap.to(this.outerCursor, 0.2, {
+      width: this.outerCursorOriginals.width,
+      height: this.outerCursorOriginals.height,
+      opacity: 1,
+      borderRadius: '50%',
+      // borderColor: '#ffffff',
+    });
+  };
+  mainNavHoverTween = () =>
+    gsap.to(this.outerCursor, 0.3, {
       backgroundColor: '#ffffff',
       ease: this.easing,
       paused: true,
     });
+  mainNavMouseEnter = () => {
+    this.outerCursorSpeed = 0;
+    gsap.set(this.innerCursor, { opacity: 0 });
+    this.mainNavHoverTween.play();
+  };
 
-    const mainNavMouseEnter = () => {
-      this.outerCursorSpeed = 0;
-      gsap.set(this.innerCursor, { opacity: 0 });
-      mainNavHoverTween.play();
-    };
-
-    const mainNavMouseLeave = () => {
-      this.outerCursorSpeed = 0.2;
-      gsap.set(this.innerCursor, { opacity: 1 });
-      mainNavHoverTween.reverse();
-    };
-
-    const mainNavLinks = document.querySelectorAll('a');
-    mainNavLinks.forEach((item) => {
-      item.addEventListener('mouseenter', mainNavMouseEnter);
-      item.addEventListener('mouseleave', mainNavMouseLeave);
-    });
-  }
+  mainNavMouseLeave = () => {
+    this.outerCursorSpeed = 0.2;
+    gsap.set(this.innerCursor, { opacity: 1 });
+    this.mainNavHoverTween.reverse();
+  };
 }

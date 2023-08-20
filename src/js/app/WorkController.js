@@ -6,6 +6,7 @@ import { isInViewport } from './utils';
 export default class WorkController extends EventEmitter {
   constructor() {
     super();
+    return;
     this.experience = new Experience();
     this.element = document.querySelector('.work-table');
     this.items = this.element.querySelectorAll('.work-table__item');

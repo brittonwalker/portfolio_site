@@ -1,6 +1,5 @@
 import normalizeWheel from 'normalize-wheel';
 import { getBreakpoints } from './utils';
-
 export default class ArticleScroll {
   constructor({ container, wrapper, items }) {
     this.DOM = {
@@ -29,7 +28,7 @@ export default class ArticleScroll {
   setStickyELs = () => {
     const { container, inner } = this.DOM;
     if (!this.isMobile) {
-      this.maxScrollContent = inner.scrollWidth - window.innerWidth - 160;
+      this.maxScrollContent = inner.offsetWidth;
       container.setAttribute(
         'style',
         'height: ' + this.maxScrollContent + 'px'
@@ -51,25 +50,22 @@ export default class ArticleScroll {
 
   onScroll = (evt) => {
     const { pixelY } = normalizeWheel(evt);
-    const { container } = this.DOM;
-
-    const stickyEl = container;
-    const inView = this.isElementInViewport(stickyEl);
+    const stickyEl = this.DOM.container;
     const scrollEl = this.DOM.wrapper;
 
-    const isBelowTop = stickyEl.offsetTop < document.documentElement.scrollTop;
-    const isBelowBottom =
-      stickyEl.offsetTop + stickyEl.offsetHeight >
-      document.documentElement.scrollTop;
-
-    let canSideScroll = isBelowTop && isBelowBottom;
-
-    if (canSideScroll && inView) {
+    if (this.isElementInViewport(stickyEl)) {
       scrollEl.scrollLeft += pixelY;
-    } else if (isBelowTop) {
-      scrollEl.scrollLeft = scrollEl.scrollWidth;
-    } else if (isBelowBottom) {
-      scrollEl.scrollLeft = 0;
+    }
+
+    // if stickyel is below viewport reset scroll
+    if (!this.isElementInViewport(stickyEl)) {
+      // scrollEl.scrollLeft = 0;
+      // if top of stickyel is above viewport reset scroll to max
+      if (stickyEl.getBoundingClientRect().top < 0) {
+        scrollEl.scrollLeft = this.maxScrollContent;
+      } else {
+        scrollEl.scrollLeft = 0;
+      }
     }
   };
 
