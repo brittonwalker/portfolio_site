@@ -1,0 +1,61 @@
+.float {
+  &__inner {
+    @apply flex flex-col gap-8 xl:flex-row xl:h-full;
+  }
+  &__section-title {
+    @apply xl:sticky xl:top-0 xl:left-0 xl:pb-8;
+  }
+  &__wrapper {
+    @apply xl:flex xl:sticky xl:top-0 xl:overflow-x-hidden xl:h-screen xl:flex-col xl:px-8 xl:py-9;
+  }
+  &__inner-wrapper {
+    @apply w-fit h-full px-4 xl:px-0;
+  }
+}
+
+.float-item {
+  $self: &;
+  @apply max-w-full mx-auto h-full bg-primary text-background flex flex-col justify-between overflow-hidden border px-4 pb-4;
+  @apply xl:min-w-[54vh] xl:px-8 xl:pb-8;
+  p {
+    @apply m-0;
+  }
+  &:hover {
+    #{ $self }__icon {
+      @apply -translate-x-[0];
+    }
+  }
+  &__text {
+    @apply flex flex-col;
+  }
+  &__number {
+    @apply w-[fit-content];
+    font-family: 'Right Grotesk';
+    font-size: clamp(24px, 6.6vh, 64px);
+  }
+  &__cta {
+    @apply flex justify-end;
+  }
+  &__icon {
+    font-family: 'Right Grotesk';
+    font-size: clamp(24px, 12vh, 140px);
+    @apply transform -translate-x-[100%] transition-transform duration-300 w-[fit-content] leading-[100%];
+  }
+  &__icon-wrap {
+    @apply overflow-hidden;
+  }
+  &__title {
+    @apply w-[fit-content] mt-0 leading-[110%];
+    font-size: clamp(24px, 3.6vh, 34px);
+  }
+  &__tech {
+    font-size: clamp(16px, 3.6vh, 24px);
+    @apply w-[fit-content] mt-4;
+  }
+  &__inner {
+    @apply flex h-full overflow-hidden;
+  }
+  &__thumb {
+    @apply self-end overflow-hidden;
+  }
+}
