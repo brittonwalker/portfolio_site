@@ -1,0 +1,10 @@
+footer {
+	@apply bg-primary text-background;
+}
+
+.footer-text {
+	font-size: 15.6vw;
+	font-size: clamp(18px, 15.6vw, 15.6vw);
+	font-family: 'Right Grotesk', sans-serif;
+	@apply text-center;
+}

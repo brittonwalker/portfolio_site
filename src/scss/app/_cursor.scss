@@ -1,0 +1,45 @@
+body {
+	--color-text: rgb(245, 238, 230);
+	--color-bg: rgb(245, 238, 230);
+	--color-border: rgb(245, 238, 230);
+	--color-line: rgb(245, 238, 230);
+	--color-link: rgb(245, 238, 230);
+	--color-link-hover: rgb(245, 238, 230);
+	--color-info: rgb(245, 238, 230);
+	--cursor-size: 50px;
+}
+
+.circle-cursor {
+	position: fixed;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	border-radius: 50%;
+	&--outer {
+		width: var(--cursor-size);
+		height: var(--cursor-size);
+		border: 1px solid var(--color-border);
+		z-index: 12000;
+		background-color: var(--color-bg);
+		mix-blend-mode: difference;
+		color: black;
+		&::after {
+			content: "";
+			position: fixed;
+			width: calc(var(--cursor-size) + 8px);
+			height: calc(var(--cursor-size) + 8px);
+			transform: translate(-5px, -5px);
+			border-radius: 50%;
+			background-color: transparent;
+			border: 2px solid var(--color-line);
+		}
+	}
+	&--inner {
+		width: 10px;
+		height: 10px;
+		left: -5px;
+		top: -5px;
+		@apply bg-white rounded-full z-[11000];
+		mix-blend-mode: difference;
+	}
+}

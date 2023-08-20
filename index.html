@@ -1,144 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
     <meta property="og:image" content="./assets/images/smiley.png" />
-    <meta property="og:description" content="This is Britton's site." />
+    <meta
+      property="og:description"
+      content="This is Britton Walker's portfolio site."
+    />
     <title>Britton Walker</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./build/index.css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159056434-1"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-159056434-1"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-        gtag('config', 'UA-159056434-1', { 'optimize_id': 'GTM-NW62ZGQ'});
+      gtag('config', 'UA-159056434-1', { optimize_id: 'GTM-NW62ZGQ' });
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js">
-</head>
+  </head>
 
-<body>
-    <nav>
-        <ul>
-            <a href="#work" id="work-link">
-                <li>WORK</li>
-            </a>
-            <a href="#info" id="info-link">
-                <li>INFO</li>
-            </a>
-        </ul>
-    </nav>
-    <p class="name fixed">britton walker</p>
-    <section class="main">
-        <div class="statement">
-            <div id="statement">I am a developer <span>living in NYC ready to</span><span>make stuff with you.</span>
-            </div>
-            <svg class="smile" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-                <circle stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="50" cy="50" r="46.088" />
-                <circle stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="25" cy="32.642" r="5.535" />
-                <circle stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="75" cy="32.642" r="5.535" />
-                <path stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" d="M21.401,51.05c0,15.808,12.791,28.599,28.599,28.599
-              S78.599,66.857,78.599,51.05" />
-            </svg>
+  <body class="bg-background loading">
+    <nav class="main-nav"></nav>
+    <main id="main">
+      <div class="circle-cursor circle-cursor--inner"></div>
+      <div class="circle-cursor circle-cursor--outer"></div>
+      <div class="preloader">
+        <div class="preloader__content">
+          <div class="preloader__title">Loading</div>
+          <div class="preloader__progress">
+            ...
+            <div class="div preloader__number"></div>
+          </div>
         </div>
-    </section>
-    <section class="work" id="work">
-        <p class="name">
-            <p>
-                <div class="project-container">
-                    <div class="project">Soft City
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div class="project-info">
-                        <div class="tech">AngularJs / MongoDB / ExpressJs / NodeJs / SASS</div>
-                        <div class="image-container">
-                            <img src="./assets/images/softcity.png" alt="">
-                            <!-- <iframe src="http://www.softcityprinting.com" width="100%" height="500px" frameborder="0"></iframe> -->
-                        </div>
-                        <p class="description">Helped design and develop a site for a Risograph Printing Press out of Brooklyn NY.</p>
-                        <a href="http://www.softcityprinting.com">softcityprinting.com</a>
-                    </div>
-                </div>
-                <div class="project-container">
-                    <div class="project">FOUO
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div class="project-info">
-                        <div class="tech">PHP / SASS / WORDPRESS / JQUERY</div>
-                        <div class="image-container">
-                            <img src="./assets/images/fouo-example-browser.png" alt="">
-                            <!-- <iframe src="http://brittonwalker.site/presentation/projects/my-site/" width="100%" height="500px" frameborder="0"></iframe> -->
-                        </div>
-                        <p class="description">Developed a Wordpress application that presents design iterations for clients at For Office Use Only. Designed by Anh Tuan Pham.</p>
-                        <a href="http://brittonwalker.site/presentation/projects/my-site/" target="_blank">Click to see example</a>
-                    </div>
-                </div>
-                <div class="project-container">
-                    <div class="project">MKCA
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div class="project-info">
-                        <div class="tech">PHP / SASS / WORDPRESS / JQUERY</div>
-                        <div class="image-container">
-                            <img src="./assets/images/mkca.png" alt="">
-                            <!-- <iframe src="http://www.mkca.com" width="100%" height="500px" frameborder="0"></iframe> -->
-                        </div>
-                        <p class="description">Helped develop a Wordpress site for Michael K Chen Architecture. Featured on siteinspire.com. Designed by Anh Tuan Pham.</p>
-                        <a href="http://www.mkca.com" target="_blank">mkca.com</a>
-                    </div>
-                </div>
-                <div class="project-container">
-                    <div class="project">RDCAAL
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div class="project-info">
-                        <div class="tech">PHP / SASS / WORDPRESS / JQUERY</div>
-                        <div class="image-container">
-                            <img src="./assets/images/rdcaalbrowser.png" alt="">
-                            <!-- <iframe src="http://architectureatlarge.com/" width="100%" height="500px" frameborder="0"></iframe> -->
-                        </div>
-                        <p class="description">Helped develop a site for Rafael de Cárdenas / Architecture at Large.</p>
-                        <a href="http://architectureatlarge.com/" target="_blank">architectureatlarge.com</a>
-                    </div>
-                </div>
-    </section>
-    <section class="info" id="info">
-        <!-- <p class="heading name">INFO</p> -->
-        <div class="contact">
-            <!-- <p>CONTACT</p> -->
-            <a href="mailto:bwalker1801@gmail.com">
-                <div class="email">bwalker1801@gmail.com</div>
-            </a><span>E-mail</span>
-            <div class="icon-container">
-                <div class="image-container">
-                    <a href="https://github.com/brittonwalker" target="_blank">
-                        <img src="./assets/images/github-icon.png" alt="">
-                    </a>
-                    <div>Github</div>
-                </div>
-                <div class="image-container">
-                    <a href="britton_walker_resume.pdf" target="_blank">
-                        <img src="./assets/images/resume-icon.png" alt="">
-                    </a>
-                    <div>Resume</div>
-                </div>
-            </div>
+      </div>
+      <section class="start">
+        <div class="start-content">
+          <h1 class="start-text">Britton Walker</h1>
+          <div class="text-content">
+            <p class="start-paragraph">
+              I am a design-oriented creative web developer based in Brooklyn,
+              NY, specializing in building sophisticated digital experiences
+              with the user in mind. I am the Associate Director of Creative
+              Technology at
+              <a
+                href="https://athleticsnyc.com/"
+                rel="noopener noreferrer nofollow"
+                target="_blank"
+                >Athletics.</a
+              >
+            </p>
+          </div>
         </div>
+        <section class="end">
+          <div class="container">
+            <div class="text-medium flex gap-8">
+              <a href="mailto:bwalker1801@gmail.com">Email</a>
+              <a href="">LinkedIn</a>
+              <a href="">Github</a>
+            </div>
+          </div>
+        </section>
+      </section>
 
-    </section>
-    <script src="./assets/js/jquery-3.1.1.min.js"></script>
-    <script src="./assets/js/waypoints/lib/jquery.waypoints.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script> -->
-    <!-- <script src="./assets/js/gsap/jquery.gsap.min.js"></script> -->
-    <script src="./assets/js/gsap/TweenMax.min.js"></script>
-    <script src="./assets/js/gsap/utils/Draggable.min.js"></script>
-    <script src="./assets/js/baffle.js"></script>
-    <script src="script.js"></script>
-</body>
+      <!-- <div class="article__wrap">
+      <div class="article__controls">
+        <button class="article__close">close</button>
+        <button class="article__prev">previous</button>
+        <button class="article__next">next</button>
+      </div>
+      <div class="article__counter">
+        <span class="article__counter-current"></span>
+        <span class="article__counter-separator">/</span>
+        <span class="article__counter-total"></span>
+      </div>
+      <article class="article" data-article="nyrb">
+        <div class="article__container">
+          <div class="test">
+            <div class="article__title">
+              The New York Review of Books
+            </div>
+          </div>
+          <div class="article__content">
+            <div class="column">
+              <div class="article__description">
+                <p>In 2019 I worked with Athletics to help bring a richer experience to NYRB's forty plus years of archival content. The site was built with WordPress, Timber, Twig, ACF, React, Bootstrap, Javascript, and is now hosted on WordPress VIP. The NYRB site won a people's choice webby in 2020.</p>
+                <p><a href="https://nybooks.com/" target="_blank" rel="noopener noreferrer nofollow">nybooks.com ↗</a></p>
+              </div>
+            </div>
+            <div class="column">
+            <div class="article__img-wrap">
+              <img data-src="./src/images/nyrb.jpeg" alt="">
+            </div>
+          </div>
+          </div>
+        </div>
+      </article>
+      <article class="article" data-article="turf">
+        <div class="article__container">
+          <div class="test">
+            <div class="article__title">
+              TURF
+            </div>
+          </div>
+          <div class="article__content">
+            <div class="column">
+              <div class="article__description">
+                <p>In 2022 I worked with the Athletics team to switch from WordPress to using Sanity.io and bring their new brand identity to life. This project uses React, Next.js, Sanity.io, and other third party tools to bring a rich experience and understanding of TURF's beautifully made felt acoustic panelling.</p>
+                <p><a href="https://turf.design/" target="_blank" rel="noopener noreferrer nofollow">turf.design ↗</a></p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="article__img-wrap">
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="article" data-article="tktk-theme">
+        <div class="article__container">
+          <div class="test">
+            <div class="article__title">
+              TKTK Theme
+            </div>
+          </div>
+          <div class="article__content">
+            <div class="column">
+              <div class="article__description">
+                <p>Building a good starter theme was an OKR for me at Athletics. Early in 2022, I set out to meet that goal and created a starter theme for developers that has some widely used tools to help get developers off the ground. This theme is bootstrapped with Timber, Twig, Barba.js, Tailwind, eslint, and the build processes to start making your next award winning website.</p>
+                <p><a href="https://tktk.brittonwalker.site/" target="_blank" rel="noopener noreferrer nofollow">tktk site ↗</a></p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="article__img-wrap">
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="article" data-article="tktk-components">
+        <div class="article__container">
+          <div class="test">
+            <div class="article__title">
+              TKTK Components
+            </div>
+          </div>
+          <div class="article__content">
+            <div class="column">
+              <div class="article__description">
+                <p>When building the TKTK theme, I wanted to pack it with a lot of commonly used components with minimal styling and functionality that would just work. I've decided to keep the theme lean and let this be a repository of components to show you how to get there, complete with code snippets. My inspiration came from seeing other Tailwind component libraries that I was happy to provide for free so developers of any level can use or learn in their process. It's a fun ongoing project that makes me really think about the code.</p>
+                <p><a href="https://tktk.brittonwalker.site/components/" target="_blank" rel="noopener noreferrer nofollow">tktk components ↗</a></p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="article__img-wrap">
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="article" data-article="zander">
+        <div class="article__container">
+          <div class="test">
+            <div class="article__title">
+              Zander Abranowicz
+            </div>
+          </div>
+          <div class="article__content">
+            <div class="column">
+              <div class="article__description">
+                <p>Zander and I worked together Athletics. He's a great writer, strategist, and all around interesting guy with a keen eye for design. In 2021 we worked together to build him a custom theme that fits his personality and share his craft. This is a custom WordPress build leveraging Timber, Twig, ACF, Tailwind, and GSAP. Designed by Zander and his brother Simon collectively known as <a href="https://abbrprojects.com/" rel="noopener noreferrer nofollow">Abbreviated Projects</a>.</p>
+                <p><a href="https://zander.abranowicz/" target="_blank" rel="noopener noreferrer nofollow">zander.abranowicz ↗</a></p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="article__img-wrap">
+                <img data-src="./src/images/zander-essay-scroll.gif" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="article" data-article="abbr">
+        <div class="article__container">
+          <div class="test">
+            <div class="article__title">
+              Abbr. Projects
+            </div>
+          </div>
+          <div class="article__content">
+            <div class="column">
+              <div class="article__description">
+                <p>Abbreviated Projects is the strategic design studio of Zander and Simon Abranowicz. I helped showcase their talents and in that space with a site built on Next.js and Sanity.io that allows them flexibility to bring their case studies to life in a big way. Design by Abbr.Projects</p>
+                <p><a href="https://abbrprojects.com/" target="_blank" rel="noopener noreferrer nofollow">abbrprojects.com ↗</a></p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="article__img-wrap">
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="article" data-article="more-more">
+        <div class="article__container">
+          <div class="test">
+            <div class="article__title">
+              More More
+            </div>
+          </div>
+          <div class="article__content">
+            <div class="column">
+              <div class="article__description">
+                <p>Athletics likes to give back at the end of each year to causes they believe in and try to have some fun with our collective skills. Before we closed for the holiday break at the end of 2018, we made a fun microsite where users could leave a drawing in a book where everyone could see it. This project uses Node, Express, MongoDB, and Fabric.js for creating the draw on canvas experience. It was really neat to see what people were able to create in this minimal browser version of Illustrator.</p>
+                <p><a href="https://2019.athleticsnyc.com/" target="_blank" rel="noopener noreferrer nofollow">more more ↗</a></p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="article__img-wrap">
+                <img data-src="./src/images/more-more.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="article" data-article="meet-nyu">
+        <div class="article__container">
+          <div class="test">
+            <div class="article__title">
+              Meet NYU
+            </div>
+          </div>
+          <div class="article__content">
+            <div class="column">
+              <div class="article__description">
+                <p>Meet NYU came to Athletics to create a fun and colorful hub for prospective and existing students. In 2019 we integrated a new WordPress them that allows their editorial team the flexibility to create content tailored to their content. We worked heavily with their accessbility team to audit build a new site for all students. In the following year, the pandemic hit and they needed to create a virtual campus experience. We created an accessbile campus map that can be created in the editor per campus on a tight timeline.</p>
+                <p><a href="https://meet.nyu.edu/" target="_blank" rel="noopener noreferrer nofollow">meet.nyu.edu ↗</a></p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="article__img-wrap">
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="article" data-article="the-counter">
+        <div class="article__container">
+          <div class="test">
+            <div class="article__title">
+              The Counter
+            </div>
+          </div>
+          <div class="article__content">
+            <div class="column">
+              <div class="article__description">
+                <p>Athletics worked with the delightful and amitious people at The New Food Economy to rebrand themselves into The Counter. The Counter is an editorial site centered around the poltics of food. This WordPress build is full of color and interaction and affords a lot of flexibility for editors to create content that bring their stories to life.</p>
+                <p><a href="https://thecounter.org/" target="_blank" rel="noopener noreferrer nofollow">thecounter.org ↗</a></p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="article__img-wrap">
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div> -->
+    </main>
+    <script src="./build/index.js"></script>
+  </body>
 </html>
