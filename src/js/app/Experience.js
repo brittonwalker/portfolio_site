@@ -27,17 +27,13 @@ export default class Experience {
     this.animatedELs.forEach((el) => {
       new TextLinesReveal(el);
     });
-    this.articles = new Articles(document.querySelector('.article__wrap'));
-    this.workItems = new SideScrollers([
-      ...document.querySelectorAll('.work__scroller'),
-    ]);
-    this.images = document.querySelectorAll('.float-item__thumb');
+    this.images = document.querySelectorAll('.float-item__thumb') || [];
     this.images.forEach((image) => {
       new ImageReveal(image);
     });
 
     this.intro = new Intro();
-    this.workTable = new WorkController();
+    // this.workTable = new WorkController();
 
     this.createPreloader();
   }

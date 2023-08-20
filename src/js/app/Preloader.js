@@ -15,7 +15,12 @@ export default class Preloader extends Component {
 
     this.length = 0;
 
-    this.createLoader();
+    if (this.elements.images.length > 0) {
+      this.createLoader();
+    } else {
+      this.elements.progress.innerHTML = `100%`;
+      this.onLoaded();
+    }
   }
   createLoader() {
     each(this.elements.images, (element) => {

@@ -36,10 +36,15 @@
 }
 
 .start {
-  @apply p-8 flex flex-col border-b border-primary min-h-screen;
+  @apply p-8 flex flex-col min-h-screen;
 
   &-text {
-    font-size: clamp(40px, 300px, 212px);
+    font-size: 2.5rem;
+    font-size: clamp(
+      2.5rem,
+      -0.5714285714285712rem + 15.357142857142856vw,
+      13.25rem
+    );
   }
 }
 

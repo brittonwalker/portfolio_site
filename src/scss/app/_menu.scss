@@ -1,33 +1,33 @@
 .main-nav {
-	@apply bg-primary fixed top-0 left-[100%] z-10 w-[33vw] transition-all duration-1000 ease-in-out h-screen mix-blend-difference;
-	&.is-active {
-		left: calc(100% - 33vw);
-	}
+  @apply bg-primary fixed top-0 left-[100%] z-10 w-[33vw] transition-all duration-1000 ease-in-out h-screen mix-blend-difference;
+  &.is-active {
+    left: calc(100% - 33vw);
+  }
 }
 
 body.is-active {
-	overflow: hidden;
-	.main-nav {
-		left: calc(100% - 33vw);
-	}
-	main {
-		left: -33vw;
-	}
+  overflow: hidden;
+  .main-nav {
+    left: calc(100% - 33vw);
+  }
+  main {
+    left: -33vw;
+  }
 }
 
 main {
-	@apply w-full h-full relative left-0;
-	// @apply transition-all duration-1000 ease-in-out;
+  @apply w-full h-full relative left-0;
+  // @apply transition-all duration-1000 ease-in-out;
 }
 
 .menu-trigger {
-	@apply fixed top-8 right-8 z-10 mix-blend-difference;
+  @apply fixed top-8 right-8 z-10 mix-blend-difference;
 }
 
 .menu-indicator {
-	@apply bg-primary;
-	@apply w-8 h-8 rounded-full;
-	@apply transform rotate-45;
-	@apply transition-all duration-200 ease-in-out;
-	@apply cursor-pointer animate-bounce;
+  @apply bg-primary;
+  @apply w-8 h-8 rounded-full;
+  @apply transform rotate-45;
+  @apply transition-all duration-200 ease-in-out;
+  @apply cursor-pointer animate-bounce;
 }

@@ -1,242 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
     <meta property="og:image" content="./assets/images/smiley.png" />
-    <meta property="og:description" content="This is Britton's site." />
+    <meta
+      property="og:description"
+      content="This is Britton Walker's portfolio site."
+    />
     <title>Britton Walker</title>
-    <link rel="stylesheet" href="./build/index.css">
+    <link rel="stylesheet" href="./build/index.css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159056434-1"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-159056434-1"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-        gtag('config', 'UA-159056434-1', { 'optimize_id': 'GTM-NW62ZGQ'});
+      gtag('config', 'UA-159056434-1', { optimize_id: 'GTM-NW62ZGQ' });
     </script>
-</head>
+  </head>
 
-<body class="bg-background loading">
-  <nav class="main-nav"></nav>
-  <main id="main">
-    <div class="circle-cursor circle-cursor--inner"></div>
-    <div class="circle-cursor circle-cursor--outer"></div>
-    <div class="preloader">
-      <div class="preloader__content">
+  <body class="bg-background loading">
+    <nav class="main-nav"></nav>
+    <main id="main">
+      <div class="circle-cursor circle-cursor--inner"></div>
+      <div class="circle-cursor circle-cursor--outer"></div>
+      <div class="preloader">
+        <div class="preloader__content">
           <div class="preloader__title">Loading</div>
-          <div class="preloader__progress">...<div class="div preloader__number"></div></div>
-      </div>
-    </div>
-    <section class="start">
-      <div class="start-content">
-        <h1 class="start-text">Britton Walker</h1>
-        <div class="text-content">
-          <p class="start-paragraph">I am a design-oriented creative web developer based in Brooklyn and Senior Creative Technologist with the fine folks at <a href="https://athleticsnyc.com/" rel="noopener noreferrer nofollow" target="_blank">Athletics</a> specializing in building sophisticated digital experiences.</p>
+          <div class="preloader__progress">
+            ...
+            <div class="div preloader__number"></div>
+          </div>
         </div>
       </div>
-      <!-- <div class="circle">
-        <div class="flex sticky top-0">
-          <div class="circ-sun"></div>
+      <section class="start">
+        <div class="start-content">
+          <h1 class="start-text">Britton Walker</h1>
+          <div class="text-content">
+            <p class="start-paragraph">
+              I am a design-oriented creative web developer based in Brooklyn,
+              NY, specializing in building sophisticated digital experiences
+              with the user in mind. I am the Associate Director of Creative
+              Technology at
+              <a
+                href="https://athleticsnyc.com/"
+                rel="noopener noreferrer nofollow"
+                target="_blank"
+                >Athletics.</a
+              >
+            </p>
+          </div>
         </div>
-        <div class="circ-child"></div>
-        <div class="circ-child"></div>
-        <div class="circ-child"></div>
-        <div class="circ-child"></div>
-        <div class="circ-child"></div>
-        <div class="circ-child"></div>
-        <div class="circ-child"></div>
-        <div class="circ-child"></div>
-        <div class="circ-child"></div>
-      </div> -->
-    </section>
-    <section class="work-section">
-      <div class="float__container">
-        <div class="float__wrapper">
-          <div class="float__section-title">
-            <div class="container">
-              <div class="flex justify-between">
-                <h1 class="text-reveal">Work</h2>
-              </div>
+        <section class="end">
+          <div class="container">
+            <div class="text-medium flex gap-8">
+              <a href="mailto:bwalker1801@gmail.com">Email</a>
+              <a href="">LinkedIn</a>
+              <a href="">Github</a>
             </div>
           </div>
-          <div class="float__inner-wrapper">
-            <div class="float__inner">
-              <div class="float-item" data-article-trigger="nyrb">
-                <div class="float-item__text">
-                  <div class="float-item__number">1</div>
-                  <p class="float-item__title">The New York Review of Books</p>
-                  <div class="float-item__tech">WordPress</div>
-                </div>
-                <div class="float-item__bottom">
-                  <div class="float-item__cta">
-                    <div class="float-item__icon-wrap">
-                      <div class="float-item__icon">→</div>
-                    </div>
-                  </div>
-                  <div class="float-item__thumb">
-                    <div class="float-item__thumb-cover"></div>
-                    <img data-src="./src/images/nyrb.jpeg" alt="">
-                  </div>
-                </div>
-              </div>
-              <div class="float-item" data-article-trigger="turf">
-                <div class="float-item__text">
-                  <div class="float-item__number">2</div>
-                  <p class="float-item__title">TURF</p>
-                  <div class="float-item__tech">Sanity.io / Next.js</div>
-                </div>
-                <div class="float-item__bottom">
-                  <div class="float-item__cta">
-                    <div class="float-item__icon-wrap">
-                      <div class="float-item__icon">→</div>
-                    </div>
-                  </div>
-                  <div class="float-item__thumb">
-                    <img data-src="./src/images/turf.jpeg" alt="">
-                  </div>
-                </div>
-              </div>
-              <div class="float-item" data-article-trigger="tktk-theme">
-                <div class="float-item__text">
-                  <div class="float-item__number">3</div>
-                  <p class="float-item__title">TKTK Theme</p>
-                  <div class="float-item__tech">WordPress / Timber / GSAP / Open Source</div>
-                </div>
-                <div class="float-item__bottom">
-                  <div class="float-item__cta">
-                    <div class="float-item__icon-wrap">
-                      <div class="float-item__icon">→</div>
-                    </div>
-                  </div>
-                  <div class="float-item__thumb">
-                    <img data-src="./src/images/tktk-theme.jpeg" alt="">
-                  </div>
-                </div>
-              </div>
-              <div class="float-item" data-article-trigger="tktk-components">
-                <div class="float-item__text">
-                  <div class="float-item__number">4</div>
-                  <p class="float-item__title">TKTK Components</p>
-                  <div class="float-item__tech">Open Source</div>
-                </div>
-                <div class="float-item__bottom">
-                  <div class="float-item__cta">
-                    <div class="float-item__icon-wrap">
-                      <div class="float-item__icon">→</div>
-                    </div>
-                  </div>
-                  <div class="float-item__thumb">
-                    <img data-src="./src/images/tktk-components.png" alt="">
-                  </div>
-                </div>
-              </div>
-              <div class="float-item" data-article-trigger="zander">
-                <div class="float-item__text">
-                  <div class="float-item__number">5</div>
-                  <p class="float-item__title">Zander Abranowicz</p>
-                  <div class="float-item__tech">WordPress / GSAP</div>
-                </div>
-                <div class="float-item__bottom">
-                  <div class="float-item__cta">
-                    <div class="float-item__icon-wrap">
-                      <div class="float-item__icon">→</div>
-                    </div>
-                  </div>
-                  <div class="float-item__thumb">
-                    <img data-src="./src/images/zander.png" alt="">
-                  </div>
-                </div>
-              </div>
-              <div class="float-item" data-article-trigger="abbr">
-                <div class="float-item__text">
-                  <div class="float-item__number">6</div>
-                  <p class="float-item__title">Abbr. Projects</p>
-                  <div class="float-item__tech">Sanity.io / Next.js / Framer Motion</div>
-                </div>
-                <div class="float-item__bottom">
-                  <div class="float-item__cta">
-                    <div class="float-item__icon-wrap">
-                      <div class="float-item__icon">→</div>
-                    </div>
-                  </div>
-                  <div class="float-item__thumb">
-                    <img data-src="./src/images/abbr.png" alt="">
-                  </div>
-                </div>
-              </div>
-              <div class="float-item" data-article-trigger="more-more">
-                <div class="float-item__text">
-                  <div class="float-item__number">7</div>
-                  <p class="float-item__title">More More</p>
-                  <div class="float-item__tech">Node / MongoDB / Canvas</div>
-                </div>
-                <div class="float-item__bottom">
-                  <div class="float-item__cta">
-                    <div class="float-item__icon-wrap">
-                      <div class="float-item__icon">→</div>
-                    </div>
-                  </div>
-                  <div class="float-item__thumb">
-                    <img data-src="./src/images/more-more.png" alt="">
-                  </div>
-                </div>
-              </div>
-              <div class="float-item" data-article-trigger="meet-nyu">
-                <div class="float-item__text">
-                  <div class="float-item__number">8</div>
-                  <p class="float-item__title">Meet NYU</p>
-                  <div class="float-item__tech">WordPress / Google Maps API</div>
-                </div>
-                <div class="float-item__bottom">
-                  <div class="float-item__cta">
-                    <div class="float-item__icon-wrap">
-                      <div class="float-item__icon">→</div>
-                    </div>
-                  </div>
-                  <div class="float-item__thumb">
-                    <img data-src="./src/images/nyu.png" alt="">
-                  </div>
-                </div>
-              </div>
-              <div class="float-item" data-article-trigger="the-counter">
-                <div class="float-item__text">
-                  <div class="float-item__number">9</div>
-                  <p class="float-item__title">The Counter</p>
-                  <div class="float-item__tech">WordPress</div>
-                </div>
-                <div class="float-item__bottom">
-                  <div class="float-item__cta">
-                    <div class="float-item__icon-wrap">
-                      <div class="float-item__icon">→</div>
-                    </div>
-                  </div>
-                  <div class="float-item__thumb">
-                    <img data-src="./src/images/thecounter.png" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- <section>
-      <canvas class="webgl"></canvas>
-    </section> -->
-    <section class="end">
-      <div class="container">
-        <h1 class="mb-4 text-reveal">Contact</h2>
-          <div class="text-medium flex gap-8">
-            <a href="mailto:bwalker1801@gmail.com">Email</a>
-            <a href="">LinkedIn</a>
-            <a href="">Github</a>
-          </div>
-      </div>
-    </section>
-    <div class="article__wrap">
+        </section>
+      </section>
+
+      <!-- <div class="article__wrap">
       <div class="article__controls">
         <button class="article__close">close</button>
         <button class="article__prev">previous</button>
@@ -439,8 +272,8 @@
           </div>
         </div>
       </article>
-    </div>
-  </main>
-  <script src="./build/index.js"></script>
-</body>
+    </div> -->
+    </main>
+    <script src="./build/index.js"></script>
+  </body>
 </html>

@@ -12,6 +12,13 @@ module.exports = {
         medium: ['clamp(20px, 2vw, 34px)', 'inherit'],
       },
     },
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1200px',
+      xxl: '1440px',
+    },
   },
   plugins: [],
 };

@@ -33,6 +33,7 @@ export default class Cursor {
   }
 
   initHovers() {
+    return;
     const linkItems = document.querySelectorAll('a');
     linkItems.forEach((item) => {
       item.addEventListener('mouseenter', this.handleMouseEnter.bind(this));
