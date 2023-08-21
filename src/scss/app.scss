@@ -68,3 +68,9 @@
     }
   }
 }
+
+.goodbye {
+  .farewell {
+    @apply mt-8;
+  }
+}
