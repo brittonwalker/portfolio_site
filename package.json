@@ -1,12 +1,6 @@
 {
   "name": "portfolio_site",
   "version": "1.0.0",
-<<<<<<< HEAD
-  "description": "My freaking site",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-=======
   "description": "Portfolio website for Britton Walker",
   "main": "index.js",
   "devDependencies": {
@@ -30,28 +24,21 @@
     "start": "wp-scripts start src/index.js",
     "test:e2e": "wp-scripts test-e2e",
     "test:unit": "wp-scripts test-unit-js"
->>>>>>> develop-interim
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brittonwalker/portfolio_site.git"
   },
-<<<<<<< HEAD
-=======
   "keywords": [
     "portfolio",
     "web",
     "development"
   ],
->>>>>>> develop-interim
   "author": "Britton Walker",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/brittonwalker/portfolio_site/issues"
   },
-<<<<<<< HEAD
-  "homepage": "https://github.com/brittonwalker/portfolio_site#readme"
-=======
   "homepage": "https://github.com/brittonwalker/portfolio_site#readme",
   "dependencies": {
     "@studio-freight/lenis": "^0.2.24",
@@ -60,5 +47,4 @@
     "prefix": "^1.0.0",
     "split-type": "^0.3.2"
   }
->>>>>>> develop-interim
 }
