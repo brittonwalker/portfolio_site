@@ -33,6 +33,7 @@ export default class Experience {
     });
 
     this.intro = new Intro();
+    // this.navigation = new Navigation();
     // this.workTable = new WorkController();
 
     this.createPreloader();

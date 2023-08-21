@@ -5,6 +5,7 @@ export default class Navigation {
       trigger: document.querySelector('.menu-trigger'),
       body: document.body,
     };
+    console.log('hello');
     this.init();
   }
   init() {

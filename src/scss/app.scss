@@ -36,7 +36,7 @@
 }
 
 .start {
-  @apply p-8 flex flex-col min-h-screen;
+  @apply p-6 pt-8 lg:p-8 flex flex-col min-h-screen;
 
   &-text {
     font-size: 2.5rem;

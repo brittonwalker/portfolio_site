@@ -1,70 +1,94 @@
+.work {
+  a {
+    @apply py-4 border-t border-primary transition-colors duration-300 relative overflow-hidden last-of-type:border-b -mx-[32px] px-8 flex justify-between;
+    &:after {
+      content: '';
+      display: block;
+      @apply bg-primary;
+      @apply w-full h-full;
+      @apply absolute;
+      @apply bottom-0;
+      @apply left-0;
+      @apply transform translate-y-[100%] transition-transform duration-300;
+      @apply mix-blend-difference;
+    }
+    &:hover {
+      &:after {
+        @apply translate-y-[0%];
+      }
+    }
+    .link-arrow {
+      @apply text-black relative z-50;
+    }
+  }
+}
 .work-table {
-	&__key,
-	&__item {
-		@apply grid grid-cols-12 gap-4 py-4;
-	}
-	&__year,
-	&__item-year {
-		@apply col-span-2;
-	}
-	&__item {
-		@apply py-4 border-t border-primary transition-colors duration-300 relative overflow-hidden last-of-type:border-b -mx-[32px] px-8;
-		&:after {
-			content: "";
-			display: block;
-			@apply bg-primary;
-			@apply w-full h-full;
-			@apply absolute;
-			@apply bottom-0;
-			@apply left-0;
-			@apply transform translate-y-[100%] transition-transform duration-300;
-			@apply mix-blend-difference;
-		}
-		&:hover {
-			&:after {
-				@apply translate-y-[0%];
-			}
-		}
-	}
-	&__title,
-	&__item-title {
-		@apply col-span-4;
-	}
-	&__tech,
-	&__item-tech {
-		@apply col-span-4;
-	}
-	&__collab,
-	&__item-collab {
-		@apply col-span-2;
-	}
+  &__key,
+  &__item {
+    @apply grid grid-cols-12 gap-4 py-4;
+  }
+  &__year,
+  &__item-year {
+    @apply col-span-2;
+  }
+  &__item {
+    @apply py-4 border-t border-primary transition-colors duration-300 relative overflow-hidden last-of-type:border-b -mx-[32px] px-8;
+    &:after {
+      content: '';
+      display: block;
+      @apply bg-primary;
+      @apply w-full h-full;
+      @apply absolute;
+      @apply bottom-0;
+      @apply left-0;
+      @apply transform translate-y-[100%] transition-transform duration-300;
+      @apply mix-blend-difference;
+    }
+    &:hover {
+      &:after {
+        @apply translate-y-[0%];
+      }
+    }
+  }
+  &__title,
+  &__item-title {
+    @apply col-span-4;
+  }
+  &__tech,
+  &__item-tech {
+    @apply col-span-4;
+  }
+  &__collab,
+  &__item-collab {
+    @apply col-span-2;
+  }
 }
 
 .work-grid {
-	&__toggle {
-		@apply flex gap-4 justify-center items-center;
-	}
-	&__horizontal {
-		@apply flex flex-col w-[50px] h-[50px] justify-between items-center bg-primary border border-primary p-[10px];
-		&__line {
-			@apply w-full h-1 bg-background;
-		}
-	}
-	&__vertical {
-		@apply flex w-[50px] h-[50px] justify-between items-center bg-primary border border-primary p-[10px];
-		&__line {
-			@apply w-1 h-full bg-background;
-		}
-	}
-	&__horizontal,
-	&__vertical {
-		&.--selected {
-			@apply bg-background;
-		}
-		.--selected & {
-			&__line {
-				@apply bg-primary;
-			}
-		}
-	}
+  &__toggle {
+    @apply flex gap-4 justify-center items-center;
+  }
+  &__horizontal {
+    @apply flex flex-col w-[50px] h-[50px] justify-between items-center bg-primary border border-primary p-[10px];
+    &__line {
+      @apply w-full h-1 bg-background;
+    }
+  }
+  &__vertical {
+    @apply flex w-[50px] h-[50px] justify-between items-center bg-primary border border-primary p-[10px];
+    &__line {
+      @apply w-1 h-full bg-background;
+    }
+  }
+  &__horizontal,
+  &__vertical {
+    &.--selected {
+      @apply bg-background;
+    }
+    .--selected & {
+      &__line {
+        @apply bg-primary;
+      }
+    }
+  }
 }
