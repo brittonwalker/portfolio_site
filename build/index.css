@@ -473,6 +473,12 @@ video {
 }.bg-background {
   --tw-bg-opacity: 1;
   background-color: rgb(19 19 19 / var(--tw-bg-opacity));
+}.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}.text-intro {
+  font-size: clamp(24px,3vw,3.5rem);
+  line-height: inherit;
 }@font-face{font-family:"Neue Montreal";src:url(fonts/PPNeueMontreal-Light.3ad012fc.woff2) format("woff2");font-weight:normal;font-style:normal}@font-face{font-family:"Right Grotesk";src:url(fonts/PPRadioGrotesk-Bold.3ecfb484.woff2) format("woff2");font-weight:normal;font-style:normal}body {
   --tw-bg-opacity: 1;
   background-color: rgb(19 19 19 / var(--tw-bg-opacity));
