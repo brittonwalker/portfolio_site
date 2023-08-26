@@ -74,3 +74,17 @@
     @apply mt-8;
   }
 }
+
+.intro-text {
+  @apply text-intro max-w-[1400px];
+  line-height: normal;
+}
+
+.start-text {
+  position: relative;
+  z-index: 100;
+}
+
+.line {
+  will-change: auto;
+}

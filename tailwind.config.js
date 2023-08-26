@@ -10,6 +10,7 @@ module.exports = {
       },
       fontSize: {
         medium: ['clamp(20px, 2vw, 34px)', 'inherit'],
+        intro: ['clamp(24px,3vw,3.5rem)', 'inherit'],
       },
     },
     screens: {

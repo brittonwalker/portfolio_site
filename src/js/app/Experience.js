@@ -1,16 +1,10 @@
 import TextLinesReveal from './TextLinesReveal';
 import SkewScroll from './SkewScroll';
 import Cursor from './Cursor';
-import MomentumScrolling from './MomentumScrolling';
-import Navigation from './Navigation';
-import SideScrollers from './SideScrollers';
-import StickyScroll from './StickyScroll';
-import Articles from './Articles';
 import ImageReveal from './ImageReveal';
 import Preloader from './Preloader';
 import Intro from './Intro';
-import SmoothScroll from './SmoothScroll';
-import WorkController from './WorkController';
+import Work from './Work';
 
 let instance = null;
 export default class Experience {
@@ -34,16 +28,12 @@ export default class Experience {
 
     this.intro = new Intro();
     // this.navigation = new Navigation();
-    // this.workTable = new WorkController();
+    this.workTable = new Work();
 
     this.createPreloader();
   }
   createPreloader() {
     this.preloader = new Preloader();
-    this.preloader.on('preloaded', () => this.onPreloaded());
-  }
-  onPreloaded() {
-    this.preloader.destroy();
-    this.intro.start();
+    this.intro.on('intro:complete', () => this.preloader.onComplete());
   }
 }

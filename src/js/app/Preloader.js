@@ -1,6 +1,7 @@
 import each from 'lodash/each';
 import Component from './Component';
 import gsap from 'gsap';
+import Experience from './Experience';
 
 export default class Preloader extends Component {
   constructor() {
@@ -14,11 +15,12 @@ export default class Preloader extends Component {
     });
 
     this.length = 0;
+    this.experience = new Experience();
 
     if (this.elements.images.length > 0) {
       this.createLoader();
     } else {
-      this.elements.progress.innerHTML = `100%`;
+      // this.elements.progress.innerHTML = `100%`;
       this.onLoaded();
     }
   }
@@ -38,15 +40,18 @@ export default class Preloader extends Component {
     }
   }
   onLoaded() {
+    this.experience.intro.start();
+  }
+  onComplete() {
     return new Promise((resolve) => {
       this.animateOut = gsap.timeline({
-        delay: 1,
+        ease: 'power2.out',
       });
       this.animateOut.to(this.element, {
         autoAlpha: 0,
       });
       this.animateOut.call((_) => {
-        this.trigger('preloaded');
+        document.body.classList.remove('loading');
       });
     });
   }

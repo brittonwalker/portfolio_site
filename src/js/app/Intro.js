@@ -2,6 +2,7 @@ import { gsap } from 'gsap';
 import SplitType from 'split-type';
 import EventEmitter from './EventEmitter';
 import { wrapLines } from './utils';
+import Experience from './Experience';
 
 export default class Intro extends EventEmitter {
   constructor() {
@@ -10,13 +11,11 @@ export default class Intro extends EventEmitter {
     this.SplitTypeInstance = new SplitType(this.lines, { types: 'lines' });
     wrapLines(this.SplitTypeInstance.lines, 'div', 'oh');
     gsap.set(this.SplitTypeInstance.lines, {
-      // y: '150%',
-      autoAlpha: 0,
-    });
-    gsap.set('.start-paragraph', {
+      y: '150%',
       autoAlpha: 0,
     });
     this.tl = null;
+    this.experience = new Experience();
   }
 
   start = () => {
@@ -24,18 +23,15 @@ export default class Intro extends EventEmitter {
       .timeline({
         defaults: {
           duration: 1,
-          ease: 'ease-linear',
+          ease: 'expo.out',
         },
         onComplete: () => {
-          document.body.classList.remove('loading');
           this.trigger('intro:complete');
         },
       })
-      .to([this.SplitTypeInstance.lines, '.start-paragraph'], {
-        // y: '0%',
+      .to([this.SplitTypeInstance.lines], {
+        y: '0%',
         autoAlpha: 1,
-      })).to('.start-paragraph', {
-      autoAlpha: 1,
-    });
+      }));
   };
 }
