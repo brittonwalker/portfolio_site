@@ -460,8 +460,8 @@ video {
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
-}.mt-20 {
-  margin-top: 5rem;
+}.mt-10 {
+  margin-top: 2.5rem;
 }.flex {
   display: flex;
 }.h-8 {
@@ -950,7 +950,15 @@ video {
   background-color: rgb(245 238 230 / var(--tw-bg-opacity));content:"";
 }.circle .circ-child:nth-child(1){flex:calc(0.01 * 1) 1 0;position: sticky;top: 0px;--tw-bg-opacity: 1;background-color: rgb(245 238 230 / var(--tw-bg-opacity))}.circle .circ-child:nth-child(2){flex:calc(0.01 * 2) 1 0;position: sticky;top: 0px;--tw-bg-opacity: 1;background-color: rgb(245 238 230 / var(--tw-bg-opacity))}.circle .circ-child:nth-child(3){flex:calc(0.01 * 3) 1 0;position: sticky;top: 0px;--tw-bg-opacity: 1;background-color: rgb(245 238 230 / var(--tw-bg-opacity))}.circle .circ-child:nth-child(4){flex:calc(0.01 * 4) 1 0;position: sticky;top: 0px;--tw-bg-opacity: 1;background-color: rgb(245 238 230 / var(--tw-bg-opacity))}.circle .circ-child:nth-child(5){flex:calc(0.01 * 5) 1 0;position: sticky;top: 0px;--tw-bg-opacity: 1;background-color: rgb(245 238 230 / var(--tw-bg-opacity))}.circle .circ-child:nth-child(6){flex:calc(0.01 * 6) 1 0;position: sticky;top: 0px;--tw-bg-opacity: 1;background-color: rgb(245 238 230 / var(--tw-bg-opacity))}.circle .circ-child:nth-child(7){flex:calc(0.01 * 7) 1 0;position: sticky;top: 0px;--tw-bg-opacity: 1;background-color: rgb(245 238 230 / var(--tw-bg-opacity))}.circle .circ-child:nth-child(8){flex:calc(0.01 * 8) 1 0;position: sticky;top: 0px;--tw-bg-opacity: 1;background-color: rgb(245 238 230 / var(--tw-bg-opacity))}.circle .circ-child:nth-child(9){flex:calc(0.01 * 9) 1 0;position: sticky;top: 0px;--tw-bg-opacity: 1;background-color: rgb(245 238 230 / var(--tw-bg-opacity))}.circle .circ-child:nth-child(10){flex:calc(0.01 * 10) 1 0;position: sticky;top: 0px;--tw-bg-opacity: 1;background-color: rgb(245 238 230 / var(--tw-bg-opacity))}.goodbye .farewell {
   margin-top: 2rem;
-}@media (min-width: 1024px) {
+}.intro-text {
+  max-width: 1400px;
+  font-size: clamp(24px,3vw,3.5rem);
+  line-height: inherit;line-height:normal;
+}.start-text{position:relative;z-index:100}.line{will-change:auto}@media (min-width: 1024px) {
+
+  .lg\:mt-20 {
+    margin-top: 5rem;
+  }
 
   .lg\:h-10 {
     height: 2.5rem;
