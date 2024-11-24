@@ -5,6 +5,7 @@ import ImageReveal from './ImageReveal';
 import Preloader from './Preloader';
 import Intro from './Intro';
 import Work from './Work';
+import Lenis from '@studio-freight/lenis';
 
 let instance = null;
 export default class Experience {
@@ -29,6 +30,12 @@ export default class Experience {
     this.intro = new Intro();
     // this.navigation = new Navigation();
     this.workTable = new Work();
+
+    // this.lenis = new Lenis({
+    //   autoRaf: true,
+    // });
+
+    // console.log(this.lenis);
 
     this.createPreloader();
   }
