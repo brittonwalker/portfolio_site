@@ -31,11 +31,15 @@ export default class Experience {
     // this.navigation = new Navigation();
     this.workTable = new Work();
 
-    // this.lenis = new Lenis({
-    //   autoRaf: true,
-    // });
+    const lenis = new Lenis();
 
-    // console.log(this.lenis);
+    // Use requestAnimationFrame to continuously update the scroll
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
 
     this.createPreloader();
   }

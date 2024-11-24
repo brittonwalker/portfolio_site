@@ -387,6 +387,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Preloader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Preloader */ "./src/js/app/Preloader.js");
 /* harmony import */ var _Intro__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Intro */ "./src/js/app/Intro.js");
 /* harmony import */ var _Work__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Work */ "./src/js/app/Work.js");
+/* harmony import */ var _studio_freight_lenis__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @studio-freight/lenis */ "./node_modules/@studio-freight/lenis/dist/lenis.modern.mjs");
 
 
 
@@ -415,11 +416,15 @@ class Experience {
     });
     this.intro = new _Intro__WEBPACK_IMPORTED_MODULE_5__["default"](); // this.navigation = new Navigation();
 
-    this.workTable = new _Work__WEBPACK_IMPORTED_MODULE_6__["default"](); // this.lenis = new Lenis({
-    //   autoRaf: true,
-    // });
-    // console.log(this.lenis);
+    this.workTable = new _Work__WEBPACK_IMPORTED_MODULE_6__["default"]();
+    const lenis = new _studio_freight_lenis__WEBPACK_IMPORTED_MODULE_7__["default"](); // Use requestAnimationFrame to continuously update the scroll
 
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
     this.createPreloader();
   }
 
@@ -17496,6 +17501,83 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/tiny-emitter/index.js":
+/*!********************************************!*\
+  !*** ./node_modules/tiny-emitter/index.js ***!
+  \********************************************/
+/***/ (function(module) {
+
+function E () {
+  // Keep this empty so it's easier to inherit from
+  // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
+}
+
+E.prototype = {
+  on: function (name, callback, ctx) {
+    var e = this.e || (this.e = {});
+
+    (e[name] || (e[name] = [])).push({
+      fn: callback,
+      ctx: ctx
+    });
+
+    return this;
+  },
+
+  once: function (name, callback, ctx) {
+    var self = this;
+    function listener () {
+      self.off(name, listener);
+      callback.apply(ctx, arguments);
+    };
+
+    listener._ = callback
+    return this.on(name, listener, ctx);
+  },
+
+  emit: function (name) {
+    var data = [].slice.call(arguments, 1);
+    var evtArr = ((this.e || (this.e = {}))[name] || []).slice();
+    var i = 0;
+    var len = evtArr.length;
+
+    for (i; i < len; i++) {
+      evtArr[i].fn.apply(evtArr[i].ctx, data);
+    }
+
+    return this;
+  },
+
+  off: function (name, callback) {
+    var e = this.e || (this.e = {});
+    var evts = e[name];
+    var liveEvents = [];
+
+    if (evts && callback) {
+      for (var i = 0, len = evts.length; i < len; i++) {
+        if (evts[i].fn !== callback && evts[i].fn._ !== callback)
+          liveEvents.push(evts[i]);
+      }
+    }
+
+    // Remove event from queue to prevent memory leak
+    // Suggested by https://github.com/lazd
+    // Ref: https://github.com/scottcorgan/tiny-emitter/commit/c6ebfaa9bc973b33d110a84a307742b7cf94c953#commitcomment-5024910
+
+    (liveEvents.length)
+      ? e[name] = liveEvents
+      : delete e[name];
+
+    return this;
+  }
+};
+
+module.exports = E;
+module.exports.TinyEmitter = E;
+
+
+/***/ }),
+
 /***/ "./node_modules/util-deprecate/browser.js":
 /*!************************************************!*\
   !*** ./node_modules/util-deprecate/browser.js ***!
@@ -17573,6 +17655,17 @@ function config (name) {
 
 /***/ }),
 
+/***/ "./node_modules/virtual-scroll/lib/virtualscroll.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/virtual-scroll/lib/virtualscroll.js ***!
+  \**********************************************************/
+/***/ (function(module) {
+
+!function(e,t){ true?module.exports=t():0}(this,function(){var e=0;function t(t){return"__private_"+e+++"_"+t}function i(e,t){if(!Object.prototype.hasOwnProperty.call(e,t))throw new TypeError("attempted to use private field on non-instance");return e}function n(){}n.prototype={on:function(e,t,i){var n=this.e||(this.e={});return(n[e]||(n[e]=[])).push({fn:t,ctx:i}),this},once:function(e,t,i){var n=this;function o(){n.off(e,o),t.apply(i,arguments)}return o._=t,this.on(e,o,i)},emit:function(e){for(var t=[].slice.call(arguments,1),i=((this.e||(this.e={}))[e]||[]).slice(),n=0,o=i.length;n<o;n++)i[n].fn.apply(i[n].ctx,t);return this},off:function(e,t){var i=this.e||(this.e={}),n=i[e],o=[];if(n&&t)for(var s=0,h=n.length;s<h;s++)n[s].fn!==t&&n[s].fn._!==t&&o.push(n[s]);return o.length?i[e]=o:delete i[e],this}};var o=n;o.TinyEmitter=n;var s,h="virtualscroll",r=t("options"),a=t("el"),l=t("emitter"),u=t("event"),c=t("touchStart"),d=t("bodyTouchAction");return function(){function e(e){var t=this;Object.defineProperty(this,r,{writable:!0,value:void 0}),Object.defineProperty(this,a,{writable:!0,value:void 0}),Object.defineProperty(this,l,{writable:!0,value:void 0}),Object.defineProperty(this,u,{writable:!0,value:void 0}),Object.defineProperty(this,c,{writable:!0,value:void 0}),Object.defineProperty(this,d,{writable:!0,value:void 0}),this._onWheel=function(e){var n=i(t,r)[r],o=i(t,u)[u];o.deltaX=e.wheelDeltaX||-1*e.deltaX,o.deltaY=e.wheelDeltaY||-1*e.deltaY,s.isFirefox&&1===e.deltaMode&&(o.deltaX*=n.firefoxMultiplier,o.deltaY*=n.firefoxMultiplier),o.deltaX*=n.mouseMultiplier,o.deltaY*=n.mouseMultiplier,t._notify(e)},this._onMouseWheel=function(e){var n=i(t,u)[u];n.deltaX=e.wheelDeltaX?e.wheelDeltaX:0,n.deltaY=e.wheelDeltaY?e.wheelDeltaY:e.wheelDelta,t._notify(e)},this._onTouchStart=function(e){var n=e.targetTouches?e.targetTouches[0]:e;i(t,c)[c].x=n.pageX,i(t,c)[c].y=n.pageY},this._onTouchMove=function(e){var n=i(t,r)[r];n.preventTouch&&!e.target.classList.contains(n.unpreventTouchClass)&&e.preventDefault();var o=i(t,u)[u],s=e.targetTouches?e.targetTouches[0]:e;o.deltaX=(s.pageX-i(t,c)[c].x)*n.touchMultiplier,o.deltaY=(s.pageY-i(t,c)[c].y)*n.touchMultiplier,i(t,c)[c].x=s.pageX,i(t,c)[c].y=s.pageY,t._notify(e)},this._onKeyDown=function(e){var n=i(t,u)[u];n.deltaX=n.deltaY=0;var o=window.innerHeight-40;switch(e.keyCode){case 37:case 38:n.deltaY=i(t,r)[r].keyStep;break;case 39:case 40:n.deltaY=-i(t,r)[r].keyStep;break;case 32:n.deltaY=o*(e.shiftKey?1:-1);break;default:return}t._notify(e)},i(this,a)[a]=window,e&&e.el&&(i(this,a)[a]=e.el,delete e.el),s||(s={hasWheelEvent:"onwheel"in document,hasMouseWheelEvent:"onmousewheel"in document,hasTouch:"ontouchstart"in document,hasTouchWin:navigator.msMaxTouchPoints&&navigator.msMaxTouchPoints>1,hasPointer:!!window.navigator.msPointerEnabled,hasKeyDown:"onkeydown"in document,isFirefox:navigator.userAgent.indexOf("Firefox")>-1}),i(this,r)[r]=Object.assign({mouseMultiplier:1,touchMultiplier:2,firefoxMultiplier:15,keyStep:120,preventTouch:!1,unpreventTouchClass:"vs-touchmove-allowed",useKeyboard:!0,useTouch:!0},e),i(this,l)[l]=new o,i(this,u)[u]={y:0,x:0,deltaX:0,deltaY:0},i(this,c)[c]={x:null,y:null},i(this,d)[d]=null,void 0!==i(this,r)[r].passive&&(this.listenerOptions={passive:i(this,r)[r].passive})}var t=e.prototype;return t._notify=function(e){var t=i(this,u)[u];t.x+=t.deltaX,t.y+=t.deltaY,i(this,l)[l].emit(h,{x:t.x,y:t.y,deltaX:t.deltaX,deltaY:t.deltaY,originalEvent:e})},t._bind=function(){s.hasWheelEvent&&i(this,a)[a].addEventListener("wheel",this._onWheel,this.listenerOptions),s.hasMouseWheelEvent&&i(this,a)[a].addEventListener("mousewheel",this._onMouseWheel,this.listenerOptions),s.hasTouch&&i(this,r)[r].useTouch&&(i(this,a)[a].addEventListener("touchstart",this._onTouchStart,this.listenerOptions),i(this,a)[a].addEventListener("touchmove",this._onTouchMove,this.listenerOptions)),s.hasPointer&&s.hasTouchWin&&(i(this,d)[d]=document.body.style.msTouchAction,document.body.style.msTouchAction="none",i(this,a)[a].addEventListener("MSPointerDown",this._onTouchStart,!0),i(this,a)[a].addEventListener("MSPointerMove",this._onTouchMove,!0)),s.hasKeyDown&&i(this,r)[r].useKeyboard&&document.addEventListener("keydown",this._onKeyDown)},t._unbind=function(){s.hasWheelEvent&&i(this,a)[a].removeEventListener("wheel",this._onWheel),s.hasMouseWheelEvent&&i(this,a)[a].removeEventListener("mousewheel",this._onMouseWheel),s.hasTouch&&(i(this,a)[a].removeEventListener("touchstart",this._onTouchStart),i(this,a)[a].removeEventListener("touchmove",this._onTouchMove)),s.hasPointer&&s.hasTouchWin&&(document.body.style.msTouchAction=i(this,d)[d],i(this,a)[a].removeEventListener("MSPointerDown",this._onTouchStart,!0),i(this,a)[a].removeEventListener("MSPointerMove",this._onTouchMove,!0)),s.hasKeyDown&&i(this,r)[r].useKeyboard&&document.removeEventListener("keydown",this._onKeyDown)},t.on=function(e,t){i(this,l)[l].on(h,e,t);var n=i(this,l)[l].e;n&&n[h]&&1===n[h].length&&this._bind()},t.off=function(e,t){i(this,l)[l].off(h,e,t);var n=i(this,l)[l].e;(!n[h]||n[h].length<=0)&&this._unbind()},t.destroy=function(){i(this,l)[l].off(),this._unbind()},e}()});
+
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/defineProperty.js ***!
@@ -17598,6 +17691,25 @@ function _defineProperty(obj, key, value) {
 
   return obj;
 }
+
+/***/ }),
+
+/***/ "./node_modules/@studio-freight/lenis/dist/lenis.modern.mjs":
+/*!******************************************************************!*\
+  !*** ./node_modules/@studio-freight/lenis/dist/lenis.modern.mjs ***!
+  \******************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ n; }
+/* harmony export */ });
+/* harmony import */ var tiny_emitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tiny-emitter */ "./node_modules/tiny-emitter/index.js");
+/* harmony import */ var virtual_scroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! virtual-scroll */ "./node_modules/virtual-scroll/lib/virtualscroll.js");
+function e(){return e=Object.assign?Object.assign.bind():function(t){for(var i=1;i<arguments.length;i++){var e=arguments[i];for(var s in e)Object.prototype.hasOwnProperty.call(e,s)&&(t[s]=e[s])}return t},e.apply(this,arguments)}function s(t,i){let e=t%i;return e<0&&(e+=i),e}const r=["duration","easing"];class o{to(t,i={}){let{duration:s=1,easing:o=(t=>t)}=i,n=function(t,i){if(null==t)return{};var e,s,r={},o=Object.keys(t);for(s=0;s<o.length;s++)i.indexOf(e=o[s])>=0||(r[e]=t[e]);return r}(i,r);this.target=t,this.fromKeys=e({},n),this.toKeys=e({},n),this.keys=Object.keys(e({},n)),this.keys.forEach(i=>{this.fromKeys[i]=t[i]}),this.duration=s,this.easing=o,this.currentTime=0,this.isRunning=!0}stop(){this.isRunning=!1}raf(t){if(!this.isRunning)return;this.currentTime=Math.min(this.currentTime+t,this.duration);const i=this.easing(this.progress);this.keys.forEach(t=>{const e=this.fromKeys[t];this.target[t]=e+(this.toKeys[t]-e)*i}),1===i&&this.stop()}get progress(){return this.currentTime/this.duration}}class n extends tiny_emitter__WEBPACK_IMPORTED_MODULE_0__.TinyEmitter{constructor({duration:t=1.2,easing:e=(t=>Math.min(1,1.001-Math.pow(2,-10*t))),smooth:s=!0,mouseMultiplier:r=1,smoothTouch:n=!1,touchMultiplier:h=2,direction:l="vertical",gestureDirection:c="vertical",infinite:a=!1,wrapper:p=window,content:u=document.body}={}){var d,f,g;super(),this.onWindowResize=()=>{this.wrapperWidth=window.innerWidth,this.wrapperHeight=window.innerHeight},this.onWrapperResize=([t])=>{if(t){const i=t.contentRect;this.wrapperWidth=i.width,this.wrapperHeight=i.height}},this.onContentResize=([t])=>{if(t){const i=t.contentRect;this.contentWidth=i.width,this.contentHeight=i.height}},this.onVirtualScroll=({deltaY:t,deltaX:i,originalEvent:e})=>{const s=!!e.composedPath().find(t=>t.hasAttribute&&t.hasAttribute("data-lenis-prevent"));if(e.ctrlKey||s)return;if(this.smooth=e.changedTouches?this.smoothTouch:this.options.smooth,this.stopped)return void e.preventDefault();if(!this.smooth)return;if(4===e.buttons)return;this.smooth&&e.preventDefault();let r=0;r="both"===this.gestureDirection?i+t:"horizontal"===this.gestureDirection?i:t,this.targetScroll-=r,this.scrollTo(this.targetScroll)},this.onScroll=t=>{this.isScrolling&&this.smooth||(this.targetScroll=this.scroll=this.lastScroll=this.wrapperNode[this.scrollProperty],this.notify())},window.lenisVersion="0.2.24",this.options={duration:t,easing:e,smooth:s,mouseMultiplier:r,smoothTouch:n,touchMultiplier:h,direction:l,gestureDirection:c,infinite:a,wrapper:p,content:u},this.duration=t,this.easing=e,this.smooth=s,this.mouseMultiplier=r,this.smoothTouch=n,this.touchMultiplier=h,this.direction=l,this.gestureDirection=c,this.infinite=a,this.wrapperNode=p,this.contentNode=u,this.wrapperNode.addEventListener("scroll",this.onScroll),this.wrapperNode===window?(this.wrapperNode.addEventListener("resize",this.onWindowResize),this.onWindowResize()):(this.wrapperHeight=this.wrapperNode.offsetHeight,this.wrapperWidth=this.wrapperNode.offsetWidth,this.wrapperObserver=new ResizeObserver(this.onWrapperResize),this.wrapperObserver.observe(this.wrapperNode)),this.contentHeight=this.contentNode.offsetHeight,this.contentWidth=this.contentNode.offsetWidth,this.contentObserver=new ResizeObserver(this.onContentResize),this.contentObserver.observe(this.contentNode),this.targetScroll=this.scroll=this.lastScroll=this.wrapperNode[this.scrollProperty],this.animate=new o;const w=(null==(d=navigator)||null==(f=d.userAgentData)?void 0:f.platform)||(null==(g=navigator)?void 0:g.platform)||"unknown";this.virtualScroll=new virtual_scroll__WEBPACK_IMPORTED_MODULE_1__({el:this.wrapperNode,firefoxMultiplier:50,mouseMultiplier:this.mouseMultiplier*(w.includes("Win")?.84:.4),touchMultiplier:this.touchMultiplier,passive:!1,useKeyboard:!1,useTouch:!0}),this.virtualScroll.on(this.onVirtualScroll)}get scrollProperty(){let t;return t=this.wrapperNode===window?"horizontal"===this.direction?"scrollX":"scrollY":"horizontal"===this.direction?"scrollLeft":"scrollTop",t}start(){this.stopped=!1}stop(){this.stopped=!0,this.animate.stop()}destroy(){var t;this.wrapperNode===window&&this.wrapperNode.removeEventListener("resize",this.onWindowResize),this.wrapperNode.removeEventListener("scroll",this.onScroll),this.virtualScroll.destroy(),null==(t=this.wrapperObserver)||t.disconnect(),this.contentObserver.disconnect()}get limit(){return"horizontal"===this.direction?this.contentWidth-this.wrapperWidth:this.contentHeight-this.wrapperHeight}raf(t){const i=t-(this.now||0);this.now=t,!this.stopped&&this.smooth&&(this.lastScroll=this.scroll,this.animate.raf(.001*i),this.scroll===this.targetScroll&&(this.lastScroll=this.scroll),this.isScrolling&&(this.setScroll(this.scroll),this.notify()),this.isScrolling=this.scroll!==this.targetScroll)}get velocity(){return this.scroll-this.lastScroll}setScroll(t){let i=this.infinite?s(t,this.limit):t;"horizontal"===this.direction?this.wrapperNode.scrollTo(i,0):this.wrapperNode.scrollTo(0,i)}notify(){let t=this.infinite?s(this.scroll,this.limit):this.scroll;this.emit("scroll",{scroll:t,limit:this.limit,velocity:this.velocity,direction:0===this.velocity?0:this.velocity>0?1:-1,progress:t/this.limit})}scrollTo(t,{offset:i=0,immediate:e=!1,duration:s=this.duration,easing:r=this.easing}={}){if(null==t)return;let o;if("number"==typeof t)o=t;else if("top"===t||"#top"===t)o=0;else if("bottom"===t)o=this.limit;else{let i;if("string"==typeof t)i=document.querySelector(t);else{if(null==t||!t.nodeType)return;i=t}if(!i)return;let e=0;if(this.wrapperNode!==window){const t=this.wrapperNode.getBoundingClientRect();e="horizontal"===this.direction?t.left:t.top}const s=i.getBoundingClientRect();o=("horizontal"===this.direction?s.left:s.top)+this.scroll-e}o+=i,this.targetScroll=this.infinite?o:Math.max(0,Math.min(o,this.limit)),!this.smooth||e?(this.animate.stop(),this.scroll=this.lastScroll=this.targetScroll,this.setScroll(this.targetScroll)):this.animate.to(this,{duration:s,easing:r,scroll:this.targetScroll})}}
+//# sourceMappingURL=lenis.modern.mjs.map
+
 
 /***/ })
 

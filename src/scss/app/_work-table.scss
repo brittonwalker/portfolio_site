@@ -18,7 +18,7 @@
       }
     }
     .link-arrow {
-      @apply text-black relative z-50;
+      @apply relative mix-blend-difference;
     }
   }
 }
