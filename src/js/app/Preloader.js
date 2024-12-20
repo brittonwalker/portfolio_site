@@ -33,7 +33,7 @@ export default class Preloader extends Component {
   onAssetLoaded() {
     this.length += 1;
     const percent = this.length / this.elements.images.length;
-    this.elements.progress.innerHTML = `${Math.round(percent * 100)}%`;
+    // this.elements.progress.innerHTML = `${Math.round(percent * 100)}%`;
 
     if (percent === 1) {
       this.onLoaded();

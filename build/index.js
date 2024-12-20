@@ -414,10 +414,17 @@ class Experience {
     this.images.forEach(image => {
       new _ImageReveal__WEBPACK_IMPORTED_MODULE_3__["default"](image);
     });
-    this.intro = new _Intro__WEBPACK_IMPORTED_MODULE_5__["default"](); // this.navigation = new Navigation();
-
+    this.intro = new _Intro__WEBPACK_IMPORTED_MODULE_5__["default"]();
     this.workTable = new _Work__WEBPACK_IMPORTED_MODULE_6__["default"]();
-    const lenis = new _studio_freight_lenis__WEBPACK_IMPORTED_MODULE_7__["default"](); // Use requestAnimationFrame to continuously update the scroll
+    const lenis = new _studio_freight_lenis__WEBPACK_IMPORTED_MODULE_7__["default"]();
+    const navItems = document.querySelectorAll('.nav a');
+    navItems.forEach(item => {
+      item.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(e.target.getAttribute('href'));
+        lenis.scrollTo(target);
+      });
+    }); // Use requestAnimationFrame to continuously update the scroll
 
     function raf(time) {
       lenis.raf(time);
@@ -599,8 +606,7 @@ class Preloader extends _Component__WEBPACK_IMPORTED_MODULE_1__["default"] {
 
   onAssetLoaded() {
     this.length += 1;
-    const percent = this.length / this.elements.images.length;
-    this.elements.progress.innerHTML = `${Math.round(percent * 100)}%`;
+    const percent = this.length / this.elements.images.length; // this.elements.progress.innerHTML = `${Math.round(percent * 100)}%`;
 
     if (percent === 1) {
       this.onLoaded();

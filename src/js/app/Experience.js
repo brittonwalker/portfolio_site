@@ -28,10 +28,18 @@ export default class Experience {
     });
 
     this.intro = new Intro();
-    // this.navigation = new Navigation();
     this.workTable = new Work();
 
     const lenis = new Lenis();
+
+    const navItems = document.querySelectorAll('.nav a');
+    navItems.forEach((item) => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(e.target.getAttribute('href'));
+        lenis.scrollTo(target);
+      });
+    });
 
     // Use requestAnimationFrame to continuously update the scroll
     function raf(time) {

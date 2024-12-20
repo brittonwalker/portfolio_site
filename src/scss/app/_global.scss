@@ -34,3 +34,7 @@ h1 {
 .text-content {
   @apply w-[960px] max-w-full text-medium;
 }
+
+.nav {
+  z-index: 1000;
+}
