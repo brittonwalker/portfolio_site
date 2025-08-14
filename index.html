@@ -36,15 +36,15 @@
   </head>
 
   <body class="bg-background loading">
-    <nav
+    <!-- <nav
       class="nav fixed top-0 left-0 right-0 flex px-6 lg:px-8 py-4 justify-end z-50"
     >
       <div class="flex gap-x-4">
-        <a href="#about-me">About Me</a>
-        <a href="#work">Work</a>
-        <a href="#contact-me">Contact</a>
+        <a class="" href="#about-me">Experience</a>
+        <a class="" href="#work">Work</a>
+        <a class="" href="#contact-me">Contact</a>
       </div>
-    </nav>
+    </nav> -->
     <main id="main">
       <div class="circle-cursor circle-cursor--inner"></div>
       <div class="circle-cursor circle-cursor--outer"></div>
@@ -62,17 +62,11 @@
           <h1 class="start-text">Britton Walker</h1>
           <div class="intro-text">
             <p class="start-paragraph">
-              I am a design-oriented creative technologist based in Brooklyn,
-              NY, specializing in building sophisticated digital experiences
-              with the user in mind. I am the Associate Director of Creative
-              Technology at
-              <a
-                href="https://athleticsnyc.com/"
-                rel="noopener noreferrer nofollow"
-                target="_blank"
-                class="border-b"
-                >Athletics ↗.</a
-              >
+              Brooklyn-based frontend engineer specializing in React,
+              TypeScript, Next.js, and enterprise WordPress, crafting
+              accessible, performant, and visually engaging experiences for
+              product, cultural institutions, editorial platforms, and
+              enterprise brands.
             </p>
           </div>
           <div class="flex gap-4 lg:gap-6">
@@ -95,9 +89,10 @@
               </svg>
             </a>
             <a
-              href="https://www.linkedin.com/in/britton-walker-3314914a"
+              href="https://www.linkedin.com/in/britton-walker"
               title="LinkedIn"
               class="flex justify-center items-center"
+              target="_blank"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -133,103 +128,147 @@
             </a>
           </div>
         </div>
-        <div class="about-me mt-10 lg:mt-20" id="about-me">
-          <h2 class="work-title py-4 text-intro">About Me ↓ ↓ ↓</h2>
-          <div class="grid lg:grid-cols-2 gap-8">
-            <div class="col-1 order-2 lg:order-1">
-              <p class="mt-0">
-                I moved to Brooklyn after graduating from the University of
-                North Texas with a degree in International Studies, focusing on
-                Middle Eastern and African regional politics. As the child of
-                military parents, I lived in many places around the world for
-                short periods, but New York has become the place I've called
-                home the longest. My nomadic upbringing fuels my curiosity and
-                passion for learning about the world around me.
+        <div class="text-content-small mt-10 lg:mt-20" id="about-me">
+          <h2 class="work-title py-4 text-intro">Experience ↓ ↓ ↓</h2>
+          <div class="grid lg:grid-cols-4 gap-8">
+            <div class="col-span-1">2023 — 2025</div>
+            <div class="col-span-3">
+              <span class="text-bold">
+                Associate Director of Creative Technology,
+                <a href="https://athleticsnyc.com/" target="_blank">
+                  Athletics
+                </a>
+              </span>
+              <p class="mt-2">
+                Led projects end-to-end partnering closely with design and
+                strategy teams to shape and prototype user experiences. Built
+                internal tools and development standards that streamlined
+                workflows, improved user experiences, and accelerated delivery.
+                Explored and introduced new technologies and workflows to
+                elevate performance, accessibility, and creative expression,
+                while fostering team growth through regular knowledge-sharing.
               </p>
-              <p>
-                My journey into coding began after moving to New York, where I
-                interned as a design assistant for Garrick Gott. During that
-                time, I designed beautiful art books for major publishers and
-                worked on branding for Printed Matter's NY and LA Art Book
-                Fairs. Already intrigued by coding, I started creating quick
-                websites for books and projects as a fun challenge.
-              </p>
-              <p>
-                A few years later, I decided to fully commit and attended the
-                Web Development Immersive program at General Assembly in
-                Washington, D.C. After completing the program, I built websites
-                for friends and soon joined For Office Use Only, a small but
-                mighty design studio in Manhattan. From there, I moved on to
-                Athletics, where I’ve had a rewarding career helping shape their
-                technology capabilities and mentoring the team.
-              </p>
-              <p>
-                Outside of work, I enjoy playing music and was the singer and
-                guitarist for the infamous world-touring punk band B Boys. We
-                released several vinyl records, played at high-profile
-                festivals, and toured across the U.S., Canada, the U.K., and
-                Europe. These days, I’m happily settled at home and have
-                discovered new passions to keep me inspired.
-              </p>
-              <p>
-                I’m a dedicated martial artist, studying Jeet Kune Do, Brazilian
-                Jiu-Jitsu, and occasionally Muay Thai. Lover of alliteration.
-                Amateur photographer. I’ll take a cappuccino any time of day.
-                Imaginative stories fuel my creativity—I’m an avid reader and a
-                full-blown cinephile, you can catch me at some of my favorite
-                art house cinemas any Sunday.
-              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="pill">React</span>
+                <span class="pill">Next.js</span>
+                <span class="pill">TypeScript</span>
+                <span class="pill">WordPress</span>
+                <span class="pill">Tailwind CSS</span>
+                <span class="pill">MySQL</span>
+                <span class="pill">GSAP</span>
+                <span class="pill">AWS</span>
+                <span class="pill">Node.js</span>
+                <span class="pill">Three.js</span>
+                <span class="pill">p5.js</span>
+                <span class="pill">SQL</span>
+              </div>
             </div>
-            <div class="col-2 order-1 lg:order-2">
-              <div class="flex justify-center">
-                <img
-                  src="./src/images/thats-me.jpg"
-                  alt="Britton Walker"
-                  class="aspect-square rounded-lg object-cover lg:max-w-[60%]"
-                  data-src="./src/images/thats-me.jpg"
-                />
+            <div class="col-span-1">2016 — 2023</div>
+            <div class="col-span-3">
+              <span class="font-bold block">
+                Senior Creative Technologist,
+                <a href="https://athleticsnyc.com/" target="_blank">
+                  Athletics
+                </a>
+              </span>
+              <span class="font-bold block opacity-70">
+                Creative Technologist
+              </span>
+              <p class="mt-2">
+                Architected and delivered design-driven websites, modular design
+                systems, and content-rich digital platforms for clients across
+                culture, editorial, education, and enterprise — including the
+                New Museum, The New York Review of Books, Guild Education, Turf,
+                WPVIP, The Counter, Amplify, and NYU.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="pill">React</span>
+                <span class="pill">Next.js</span>
+                <span class="pill">TypeScript</span>
+                <span class="pill">WordPress</span>
+                <span class="pill">Tailwind CSS</span>
+                <span class="pill">PHP</span>
+                <span class="pill">Vanilla JS</span>
+                <span class="pill">GSAP</span>
+                <span class="pill">Sanity.io</span>
+                <span class="pill">WPVIP</span>
+                <span class="pill">CI/CD</span>
+                <span class="pill">Webpack</span>
+              </div>
+            </div>
+            <div class="col-span-1">2016</div>
+            <div class="col-span-3">
+              <span class="font-bold block">
+                Creative Technologist,
+                <a href="https://forofficeuseonly.com/" target="_blank">FOUO</a>
+              </span>
+              <p class="mt-2">
+                Developed custom WordPress sites and applications for
+                architecture firms MKCA and Rafael de Cárdenas, including
+                client-facing tools for presenting design iterations with
+                authentication and feedback features.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="pill">WordPress</span>
+                <span class="pill">PHP</span>
+                <span class="pill">Vanilla JS</span>
+                <span class="pill">SCSS</span>
+                <span class="pill">GSAP</span>
               </div>
             </div>
           </div>
         </div>
         <div class="work text-content mt-10 lg:mt-20" id="work">
           <h2 class="work-title py-4 text-intro">Work ↓ ↓ ↓</h2>
-          <a href="https://newmuseum.org/" target="_blank"
-            >New Museum <span class="link-arrow">↗</span></a
-          >
-          <a href="https://www.guild.com/" target="_blank"
-            >Guild Education <span class="link-arrow">↗</span></a
-          >
-          <a href="https://www.thenation.com/" target="_blank"
-            >The Nation <span class="link-arrow">↗</span></a
-          >
-          <a href="https://criterion-top-ten.vercel.app/" target="_blank"
-            >The Criterion Top Ten Top Ten <span class="link-arrow">↗</span></a
-          >
-          <a href="https://turf.design/" target="_blank"
-            ><span>Turf</span> <span class="link-arrow">↗</span></a
-          >
-          <a href="https://athleticsnyc.com/" target="_blank"
-            >Athletics <span class="link-arrow">↗</span></a
-          >
-          <a href="https://www.nybooks.com/" target="_blank"
-            >The New York Review of Books<span class="link-arrow">↗</span></a
-          >
-          <a href="https://zander.abranowicz.com/" target="_blank"
-            >Zander Abranowicz <span class="link-arrow">↗</span></a
-          >
-          <a href="https://thecounter.org/" target="_blank"
-            >The Counter <span class="link-arrow">↗</span></a
-          >
-          <a href="https://meet.nyu.edu/" target="_blank"
-            >Meet NYU <span class="link-arrow">↗</span></a
-          >
-          <a href="https://hotelvt.com/" target="_blank"
-            >Hotel Vermont <span class="link-arrow">↗</span></a
-          >
-          <a href="https://carlenparfums.com/" target="_blank"
-            >Carlen Parfums <span class="link-arrow">↗</span></a
-          >
+          <a href="https://newmuseum.org/" target="_blank">
+            New Museum
+            <span class="link-arrow">↗</span>
+          </a>
+          <a href="https://athleticsnyc.com/" target="_blank">
+            Athletics
+            <span class="link-arrow">↗</span>
+          </a>
+          <a href="https://www.guild.com/" target="_blank">
+            Guild Education
+            <span class="link-arrow">↗</span>
+          </a>
+          <a href="https://www.nybooks.com/" target="_blank">
+            The New York Review of Books
+            <span class="link-arrow">↗</span>
+          </a>
+          <a href="https://turf.design/" target="_blank">
+            <span>Turf</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <a href="https://www.thenation.com/" target="_blank">
+            The Nation
+            <span class="link-arrow">↗</span>
+          </a>
+          <a href="https://thecounter.org/" target="_blank">
+            The Counter
+            <span class="link-arrow">↗</span>
+          </a>
+          <a href="https://meet.nyu.edu/" target="_blank">
+            Meet NYU
+            <span class="link-arrow">↗</span>
+          </a>
+          <a href="https://hotelvt.com/" target="_blank">
+            Hotel Vermont
+            <span class="link-arrow">↗</span>
+          </a>
+          <a href="https://carlenparfums.com/" target="_blank">
+            Carlen Parfums
+            <span class="link-arrow">↗</span>
+          </a>
+          <a href="https://criterion-top-ten.vercel.app/" target="_blank">
+            The Criterion Top Ten Top Ten
+            <ul
+              class="hidden lg:flex flex-wrap gap-2 items-center ml-auto mr-6"
+            >
+              <li class="pill">Personal Project</li>
+            </ul>
+            <span class="link-arrow">↗</span>
+          </a>
         </div>
         <div class="contact mt-10 lg:mt-20" id="contact-me">
           <h2 class="work-title py-4 text-intro">Contact Me ↓ ↓ ↓</h2>
