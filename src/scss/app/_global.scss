@@ -32,9 +32,21 @@ h1 {
 }
 
 .text-content {
-  @apply w-[960px] max-w-full text-medium;
+  @apply w-[1080px] max-w-full text-medium;
+}
+
+.text-content-small {
+  @apply w-[1080px] max-w-full text-small;
 }
 
 .nav {
   z-index: 1000;
+}
+
+.pill {
+  @apply border border-primary p-1 px-3 rounded-full text-[12px] lg:text-[18px] inline-flex items-center;
+}
+
+.pill-hover {
+  @apply hover:bg-primary hover:text-background transition-colors duration-300;
 }
