@@ -10,7 +10,7 @@ module.exports = {
       },
       fontSize: {
         small: ['clamp(18px, 1.5vw, 24px)', 'inherit'],
-        medium: ['clamp(20px, 2vw, 34px)', 'inherit'],
+        medium: ['clamp(20px, 2vw, 34px)', '130%'],
         intro: ['clamp(24px,3vw,3.5rem)', 'inherit'],
       },
     },
